@@ -1,27 +1,27 @@
 # Space Mission Analysis
 
 ## Overview
-Exploratory analysis of space mission records, focusing on mission outcomes, launch organizations, launch locations, yearly trends, rocket status, and mission costs.
+Exploratory analysis of space mission records, covering mission outcomes, organizations, launch locations, yearly and decade trends, rocket status, and mission costs.
 
 ## Tools
-- Python
-- pandas and NumPy
-- Matplotlib and Seaborn
+Python, pandas, NumPy, Matplotlib, Seaborn.
 
-## Analysis areas
-- Dataset inspection and missing-value checks
-- Mission status and rocket status distributions
-- Most frequent organizations and launch locations
-- Mission counts by year and decade
-- Organization-level mission outcome comparisons
-- Mission price cleaning and cost distribution
-- Comparisons of mission cost and mission outcome
+## Files
+- `SpaceProject.py` — repaired analysis script.
+- `requirements.txt` — Python dependencies.
 
-## Data and reproducibility
-The original script currently points to a dataset path on a specific Windows computer. That machine-specific path must be replaced with a relative project path before the script is published as runnable code. The source CSV is not included in this folder.
+## Run locally
+1. Install dependencies from `requirements.txt`.
+2. Place `space_mission_data.csv` in the `data/` folder or beside the script.
+3. Run `python SpaceProject.py`.
 
-## Limitations
-Mission prices may be missing or recorded in inconsistent formats. Any cost comparisons should state how missing values and currency formatting were handled; descriptive patterns do not prove that cost caused a mission outcome.
+## Fixes
+- Replaced the machine-specific Windows path with a portable local-path check and a clear error message.
+- Safely removes an optional exported index column.
+- Checks required columns before running analysis.
+- Cleans currency symbols and commas before converting prices to numeric values.
+- Adds explicit plot colors for compatibility with current Seaborn versions.
+- Missing mission dates remain missing; success rate calculations avoid treating missing statuses as confirmed failures.
 
-## Project status
-Documentation published; the Python script and dataset are not yet included in this GitHub project folder.
+## Validation status
+The script compiled and completed a runtime test using a temporary synthetic dataset. The original space-mission CSV was not available for this repair pass, so the original-data findings and price distribution have not been revalidated.
