@@ -1,0 +1,6 @@
+Metric,Value,Unit
+Total Orders,500,orders
+Total Sales,474704.62,USD
+Total Profit,133570.40,USD
+Average Order Value,949.40924,USD per order
+Orders with Negative Profit,0,orders
