@@ -1,0 +1,36 @@
+name: Portfolio Integrity Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+      - "**/README.md"
+      - ".github/scripts/**"
+      - ".github/workflows/portfolio-integrity-check.yml"
+  pull_request:
+    paths:
+      - "README.md"
+      - "**/README.md"
+      - ".github/scripts/**"
+      - ".github/workflows/portfolio-integrity-check.yml"
+  schedule:
+    - cron: "41 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  portfolio-integrity:
+    name: Validate project documentation and local links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Check required project READMEs and local links
+        run: python .github/scripts/check_portfolio.py
