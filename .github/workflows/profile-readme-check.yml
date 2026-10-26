@@ -1,0 +1,33 @@
+name: Profile README Link Check
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+      - ".github/workflows/profile-readme-check.yml"
+  pull_request:
+    paths:
+      - "README.md"
+  schedule:
+    - cron: "23 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-readme-links:
+    name: Check portfolio links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check links in the profile README
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --verbose README.md
+          fail: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
