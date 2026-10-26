@@ -1,0 +1,37 @@
+name: Supply Chain Analysis Check
+
+on:
+  push:
+    paths:
+      - "supply-chain-inventory-analytics/**"
+      - ".github/workflows/supply-chain-check.yml"
+  pull_request:
+    paths:
+      - "supply-chain-inventory-analytics/**"
+      - ".github/workflows/supply-chain-check.yml"
+  workflow_dispatch:
+
+jobs:
+  run-analysis:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: supply-chain-inventory-analytics
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run analysis
+        run: python analyze_supply_chain.py
+      - name: Verify outputs
+        run: |
+          test -s outputs/kpi_summary.csv
+          test -s outputs/monthly_summary.csv
+          test -s outputs/category_summary.csv
+          test -s outputs/region_summary.csv
+          test -s outputs/reorder_candidates.csv
+          test -s outputs/monthly_sales_profit.png
+          test -s outputs/sales_by_category.png
