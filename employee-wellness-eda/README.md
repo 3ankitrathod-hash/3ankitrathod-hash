@@ -1,28 +1,22 @@
 # Employee Wellness Analysis — EDA
 
 ## Overview
-Exploratory data analysis of a workplace mental-health survey dataset. The notebook focuses on data quality, consistent categories, employee age groups, and relationships between reported treatment and workplace factors.
+A Jupyter notebook for aggregate exploratory analysis of a workplace wellness survey. The repaired notebook restores the broken Python cell formatting, uses robust local dataset-path checks, improves age and category cleaning, and avoids treating missing answers as a definite “No.”
 
 ## Tools
-- Python
-- pandas and NumPy
-- Matplotlib and Seaborn
-- Jupyter Notebook
+Python, pandas, NumPy, Matplotlib, Seaborn, Jupyter Notebook.
 
-## Analysis covered
-- Inspecting dataset shape, columns, and missing values
-- Cleaning implausible age values and inconsistent gender labels
-- Correcting employee-size categories affected by spreadsheet date conversion
-- Handling missing responses and removing free-text comments from the analysis frame
-- Visualizing age and gender distributions
-- Exploring treatment-seeking alongside family history, work interference, company size, and employer benefits
-- Summarizing the countries represented in the survey
+## Run locally
+1. Install Python 3.10+.
+2. Install the dependencies from `requirements.txt`.
+3. Obtain the source CSV only from a source whose terms permit your use.
+4. Place `employee_wellness_dataset.csv` in `data/` or beside the notebook.
+5. Run `Employee_Wellness_EDA.ipynb` from top to bottom.
 
-## Important interpretation note
-This is exploratory analysis of self-reported survey responses. Associations in the data do not establish that one factor causes another, and results should not be used to diagnose individuals or make employment decisions.
+## Privacy and interpretation
+The source survey includes sensitive workplace mental-health responses. Do not publish identifiable records or free-text comments. Use only aggregate analysis; do not diagnose, rank, or make employment decisions about individuals. Associations are not proof of causation.
 
-## Data and reproducibility
-The source notebook expects a local file named `employee_wellness_dataset.csv`. The dataset is not included in this folder. Add it locally from its permitted source before running the notebook; do not commit private or identifiable employee records.
-
-## Project status
-Documentation published; notebook and data are not yet included in this GitHub project folder.
+## Validation status
+- All repaired Python cells pass syntax parsing.
+- The notebook completed a runtime test using a temporary synthetic dataset.
+- The original survey CSV was not available for this repair pass, so real-data percentages and narrative claims still need rechecking against the permitted dataset.
