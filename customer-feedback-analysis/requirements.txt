@@ -1,0 +1,6 @@
+pandas
+numpy
+matplotlib
+jupyter
+# Optional: install openai only if using the external API integration
+# openai
