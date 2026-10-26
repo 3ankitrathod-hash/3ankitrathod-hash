@@ -1,19 +1,27 @@
 # Global Trade Data Analysis — Excel
 
 ## Overview
-Excel data-cleaning and summary analysis of 500 trade-order rows, using order dates, countries, products, categories, sales, shipping costs, profit, and region codes.
 
-## Final workbook
-The repaired workbook is prepared locally as `Global_Trade_Data_Analysis_Final.xlsx`. It contains Raw_Data, Clean_Data, Summary_Tables, and Read_Me sheets.
+Excel data-cleaning and summary analysis coursework using trade-order fields such as order dates, countries, products, categories, sales, shipping costs, profit, and region codes.
 
-## Fixes and checks
-- Standardized common country abbreviations such as USA, UK, and UAE.
-- Converted order dates and formatted them as month-year.
-- Applied currency formatting to unit price, total sales, shipping cost, and profit.
-- Highlighted negative profits.
-- Replaced customer names with pseudonymous labels in the portfolio workbook.
-- Added KPI formulas and SUMIFS/AVERAGEIFS summaries by Region_Code and Category.
-- Checked 500 unique order IDs and verified that Total_Sales matches Quantity × Unit_Price within a small rounding tolerance.
+## Intended workbook contents
 
-## Validation status
-The workbook was recalculated in LibreOffice and checked for formula errors. The source dataset has no negative-profit rows, so the conditional formatting is present but does not highlight any current records.
+The completed workbook is expected to contain Raw_Data, Clean_Data, Summary_Tables, and Read_Me sheets.
+
+## Analysis workflow
+
+- Standardize country names and trim extra spaces.
+- Convert order dates and format them as month-year.
+- Apply currency formatting to unit price, total sales, shipping cost, and profit.
+- Highlight negative profits using conditional formatting.
+- Use pseudonymous labels if customer fields are included in a public portfolio copy.
+- Add KPI formulas and SUMIFS/AVERAGEIFS summaries by Region_Code and Category.
+- Validate order IDs and check whether Total_Sales agrees with Quantity × Unit_Price within a rounding tolerance.
+
+## Validation and file status
+
+The workbook was previously prepared and checked locally, but the actual Global_Trade_Data_Analysis_Final.xlsx file is **not currently stored in this GitHub project folder**. Upload the verified workbook and screenshots of the cleaned data and summary tables before presenting them as downloadable portfolio artifacts.
+
+The source dataset has been described as having no negative-profit rows, so conditional formatting may be present without any current rows being highlighted. Recheck this against the workbook before publishing findings.
+
+Do not add numerical conclusions until the workbook is available and the figures have been rechecked.
