@@ -22,6 +22,7 @@ An end-to-end beginner portfolio project showing how an analyst can turn order-l
 ## Repository contents
 
 - `data/supply_chain_orders.csv` — synthetic order/inventory dataset
+- [`DATA_DICTIONARY.md`](./DATA_DICTIONARY.md) — field definitions and interpretation cautions
 - `analyze_supply_chain.py` — analysis script and chart generation
 - `sql/supply_chain_queries.sql` — SQL business questions
 - `requirements.txt` — Python dependencies
@@ -81,6 +82,10 @@ These are simplified portfolio metrics. The dataset does not model returns, disc
 ## SQL practice
 
 The SQL file contains queries for sales/profit KPIs, category and region performance, monthly trends, warehouse performance, and reorder candidates. The CSV is the source of truth for the Python version. To execute SQL, create a table with matching columns and load the CSV into a local MySQL database.
+
+## Automated checks
+
+A GitHub Actions workflow runs the analysis on relevant pushes and pull requests, then checks that the expected CSV and chart outputs are created. The workflow has been committed but its first hosted run still needs to complete before a passing badge/status can be claimed.
 
 ## Results and interpretation
 
