@@ -1,0 +1,11 @@
+sku,category,warehouse,stock_on_hand,reorder_point,lead_time_days
+EL-420,Electronics,Ahmedabad,5,36,5
+HM-225,Industrial,Ahmedabad,11,15,17
+IN-330,Apparel,Bengaluru,34,52,16
+HM-110,Electronics,Bengaluru,16,25,12
+AP-610,Industrial,Bengaluru,22,49,8
+OS-345,Office Supplies,Bengaluru,28,28,4
+IN-220,Office Supplies,Mumbai,9,32,15
+OS-115,Home,Pune,38,48,10
+EL-530,Industrial,Pune,50,51,2
+HM-340,Office Supplies,Pune,26,45,2
