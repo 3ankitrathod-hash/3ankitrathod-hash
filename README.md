@@ -7,6 +7,9 @@
 [![Profile README Link Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/profile-readme-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/profile-readme-check.yml)
 [![Portfolio Integrity Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/portfolio-integrity-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/portfolio-integrity-check.yml)
 [![Healthcare SQL Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/healthcare-sql-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/healthcare-sql-check.yml)
+[![CI](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/ci.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/codeql.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/codeql.yml)
+[![Supply Chain Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/supply-chain-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/supply-chain-check.yml)
 
 Turning data into clear reports, useful KPIs, and practical business insights—with a focus on **supply chain, logistics, inventory, and operations analytics**.
 
@@ -65,14 +68,21 @@ The projects below are organized by business area. Open a project README for its
 5. Communicate findings with readable tables, charts, and clear explanations.
 6. Document assumptions, data sources, and what has actually been tested.
 
-## Current Priorities
+## Portfolio Roadmap
 
-- [ ] Review every project README and confirm all links and file paths work.
-- [ ] Verify each project against its original dataset and document any limitations.
-- [ ] Add clear charts, screenshots, and reproducible instructions where appropriate.
+- [ ] Create separate repositories for Healthcare SQL, Supply Chain Analytics, Olympic Athlete Analysis, and Global Trade Analysis; preserve this profile repository as the portfolio landing page.
+- [ ] Pin the strongest completed repositories on the GitHub profile.
+- [ ] Verify each analysis against its permitted source dataset and document reproducible results.
+- [ ] Add genuine chart/dashboard screenshots and concise business findings to project READMEs.
 - [ ] Complete and verify the Power BI supply-chain dashboard.
-- [ ] Add the cleaned Global Trade workbook and genuine analysis screenshots.
-- [ ] Pin the strongest completed projects on my GitHub profile.
+- [ ] Include the final cleaned Global Trade workbook and confirm that all summary values match the workbook.
+
+## Reproducibility & Data Notes
+
+- Healthcare SQL includes fictional sample records and an automated MySQL 8 validation workflow.
+- Supply Chain Analytics uses synthetic demonstration data; its reported KPIs are not real company performance.
+- Some projects require the original dataset to be obtained separately. Follow each project's README and use only data you are permitted to share.
+- Do not commit credentials, API keys, private customer records, or identifiable health/workplace survey data.
 
 ## Contact
 
