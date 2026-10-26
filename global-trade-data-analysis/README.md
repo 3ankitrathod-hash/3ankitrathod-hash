@@ -1,25 +1,19 @@
 # Global Trade Data Analysis — Excel
 
 ## Overview
-An Excel data-cleaning and summary-analysis exercise using trade-order fields such as order date, country, unit price, total sales, and profit.
+Excel data-cleaning and summary analysis of 500 trade-order rows, using order dates, countries, products, categories, sales, shipping costs, profit, and region codes.
 
-## Excel skills practiced
-- Trimming extra spaces and standardizing country names
-- Formatting dates as month-year
-- Applying currency formatting to unit prices
-- Highlighting negative profit values
-- Improving table alignment and readability
-- Building Region_Code-by-Category summaries with SUMIFS and AVERAGEIFS
+## Final workbook
+The repaired workbook is prepared locally as `Global_Trade_Data_Analysis_Final.xlsx`. It contains Raw_Data, Clean_Data, Summary_Tables, and Read_Me sheets.
 
-## Suggested review checklist
-- Confirm that date and numeric columns have the correct data types.
-- Compare row counts before and after cleaning.
-- Check that formulas cover the full data range.
-- Validate a few summary cells against manually filtered records.
-- Keep raw and cleaned versions clearly labelled.
+## Fixes and checks
+- Standardized common country abbreviations such as USA, UK, and UAE.
+- Converted order dates and formatted them as month-year.
+- Applied currency formatting to unit price, total sales, shipping cost, and profit.
+- Highlighted negative profits.
+- Replaced customer names with pseudonymous labels in the portfolio workbook.
+- Added KPI formulas and SUMIFS/AVERAGEIFS summaries by Region_Code and Category.
+- Checked 500 unique order IDs and verified that Total_Sales matches Quantity × Unit_Price within a small rounding tolerance.
 
-## Data and reproducibility
-Multiple workbook versions exist in the working files. Choose and verify one final cleaned workbook before publishing; no workbook has been added to this GitHub project folder yet.
-
-## Project status
-Documentation published; the final workbook and evidence screenshots are not yet included in this GitHub project folder.
+## Validation status
+The workbook was recalculated in LibreOffice and checked for formula errors. The source dataset has no negative-profit rows, so the conditional formatting is present but does not highlight any current records.
