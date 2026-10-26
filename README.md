@@ -7,14 +7,14 @@ BBA student pursuing postgraduate training in Data Analytics at Imarticus Learni
 ## Featured Projects
 
 ### 1. Supply Chain & Inventory Analytics
-A reproducible Python analysis using clearly labelled synthetic order data. Includes data-quality checks, sales and estimated-profit KPIs, category and monthly summaries, reorder flags, SQL examples, and chart exports.  
+A reproducible Python analysis using clearly labelled synthetic order data. Includes data-quality checks, sales and estimated-profit KPIs, category and monthly summaries, reorder flags, SQL examples, committed summary outputs, and chart previews.  
 **Tools:** Python, pandas, Matplotlib, SQL.  
-[Explore project](./supply-chain-inventory-analytics/README.md)
+[Explore project](./supply-chain-inventory-analytics/README.md) · [Latest Python check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions)
 
 ### 2. Healthcare Analytics SQL
-A relational MySQL practice schema and queries for patient filtering, doctor experience, patient counts, paid bills, department revenue, and a reusable revenue view. Execution in MySQL 8 is still to be confirmed.  
+A relational MySQL 8 practice schema, fictional test records, and reporting queries for patient filtering, doctor experience, patient counts, paid bills, department revenue, and a reusable revenue view. The automated MySQL 8 workflow has passed.  
 **Tools:** MySQL 8, SQL.  
-[Explore project](./healthcare-analytics-sql/README.md)
+[Explore project](./healthcare-analytics-sql/README.md) · [Workflow runs](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/healthcare-sql-check.yml)
 
 ### 3. Olympic Athlete Analysis
 Exploratory analysis of athlete participation, sport-level height patterns, and participation trends.  
@@ -50,7 +50,7 @@ Exploratory analysis of athlete participation, sport-level height patterns, and 
 
 ## Transparency
 
-The Supply Chain project uses synthetic demonstration data; its metrics are not real company results. Some earlier coursework projects still need verification against their original datasets and/or a database engine. The Global Trade workbook is described in its project README, but the actual workbook still needs to be added to this repository. I do not publish private customer, employer, or patient data.
+The Supply Chain project uses synthetic demonstration data; its metrics are not real company results. The Healthcare SQL schema and queries have passed the automated MySQL 8 workflow using fictional test records. Some earlier coursework projects still need verification against their original datasets and/or a database engine. The Global Trade workbook's KPI summary and preview are included, but the original XLSX file and genuine workbook screenshots still need to be added to this repository. I do not publish private customer, employer, or patient data.
 
 ## Career interests
 
