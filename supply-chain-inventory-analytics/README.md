@@ -98,11 +98,11 @@ The data excludes discounts, taxes, returns, freight, storage, supplier constrai
 
 ## Validation status
 
-The Python script checks required columns, dates, numeric values, duplicate order IDs, and output generation. Review the GitHub Actions status and inspect generated summaries before reporting exact numeric findings. SQL examples are MySQL 8 style and are still being validated in the added automated MySQL workflow.
+**Automated Python analysis passed in GitHub Actions** and the output files were checked by the workflow. The committed CSV/SVG snapshots were calculated from the same source data and metrics. SQL examples are MySQL 8 style; compare their results against the Python summaries after importing the CSV into MySQL. See [Supply Chain workflow runs](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/supply-chain-check.yml).
 
 ## Next improvements
 
-1. Confirm the MySQL 8 workflow passes and compare SQL totals with Python totals.
+1. Compare SQL totals with Python totals in MySQL 8.
 2. Build and verify the actual Power BI dashboard.
 3. Add genuine Power BI screenshots and the PBIX file.
 4. Try a licensed public supply-chain dataset for a separate real-world analysis.
