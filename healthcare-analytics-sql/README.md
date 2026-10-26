@@ -1,25 +1,17 @@
 # Healthcare Analytics Database — SQL Practice
 
 ## Overview
-A SQL practice project based on a relational healthcare database schema. The reviewed script defines tables for departments, doctors, patients, appointments, bills, and medications.
+SQL practice covering a relational healthcare schema and analysis of patients, doctors, appointments, bills, and departments.
 
-## Skills demonstrated by the project scope
-- Relational table design and primary/foreign-key relationships
-- Filtering records with WHERE conditions
-- Aggregation and GROUP BY
-- JOINs across doctors, departments, appointments, and billing records
-- Views for reusable query results
+## Files
+- `healthcare_schema.sql` — schema-only version, without sample personal records and without a database-drop command.
+- `healthcare_queries.sql` — reviewed example queries and a `vw_doctor_revenue` view.
 
-## Example analysis tasks
-- Find patients in a specified city
-- Identify active doctors with more than ten years of experience
-- Count patients or appointments by doctor
-- Summarize paid bills by payment mode
-- Rank departments by revenue
-- Create a doctor-revenue view
+## Run locally
+Use a disposable MySQL 8 practice environment. Run `healthcare_schema.sql`, then run selected statements from `healthcare_queries.sql`. The tables remain empty until you add synthetic or otherwise authorized test data.
 
-## Important safety note
-The source SQL script contains a `DROP DATABASE IF EXISTS` statement, which deletes an existing database with that name before recreating it. Review scripts carefully and run them only in a disposable practice environment. The source also contains names, contact fields, and email-like values; the raw SQL file has therefore **not** been published here pending a privacy and synthetic-data review.
+## Safety
+The original LMS SQL file contains `DROP DATABASE IF EXISTS` and thousands of name/contact/address-like values. It has not been uploaded. The published schema-only version does not contain those sample records and does not drop a database.
 
-## Project status
-Documentation published; a sanitized schema, reviewed queries, and safe setup instructions still need to be prepared.
+## Validation status
+The replacement schema and queries have been reviewed for structure. A MySQL server was not available here, so database execution and query results still require verification in MySQL 8.
