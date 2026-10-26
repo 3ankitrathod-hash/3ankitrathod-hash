@@ -2,100 +2,75 @@
 
 # Ankit Rathod
 
-### Aspiring Data Analyst | Python • SQL • Excel • Power BI
+### Aspiring Data Analyst | SQL • Python • Excel • Power BI
 
-I turn raw data into clear analysis, useful KPIs, and practical business questions—with a special interest in **supply chain, inventory, and operations analytics**.
+Turning data into clear reports, useful KPIs, and practical business insights—with a focus on **supply chain, logistics, inventory, and operations analytics**.
 
-[LinkedIn](https://www.linkedin.com/in/ankit-rathod-07aa36328/) · [GitHub](https://github.com/3ankitrathod-hash) · [Explore my projects below](#featured-projects)
+[GitHub Projects](#projects) · [Skills](#skills) · [LinkedIn](https://www.linkedin.com/in/ankit-rathod-07aa36328/)
 
 </div>
 
 ---
 
-## About me
+## About Me
 
 - 🎓 BBA student pursuing postgraduate training in Data Analytics at Imarticus Learning.
-- 📊 Practising data cleaning, exploratory analysis, SQL reporting, and KPI development.
-- 🚚 Interested in applying analytics to supply chain, logistics, inventory, and operations.
-- 🌱 Building and validating projects step by step, with clear notes about data sources and limitations.
-- 🎯 Interested in entry-level **Data Analyst, Reporting Analyst, Operations Analyst, and Supply Chain Analyst** opportunities.
+- 📊 Building practical projects in data cleaning, exploratory data analysis, SQL reporting, and KPI analysis.
+- 🚚 Interested in applying analytics to logistics, supply chain, inventory, and business operations.
+- 🌱 Improving my skills through hands-on projects and documenting what has been completed and tested.
+- 🎯 Career interests: Data Analyst, Reporting Analyst, Operations Analyst, and Supply Chain Analyst.
 
-## Tools and skills
+## Skills
 
-![Excel](https://img.shields.io/badge/Excel-217346?style=flat&logo=microsoftexcel&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=mysql&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/pandas-150458?style=flat&logo=pandas&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=flat&logo=powerbi&logoColor=black)
-![Tableau](https://img.shields.io/badge/Tableau-learning-E97627?style=flat&logo=tableau&logoColor=white)
-
-| Area | Current practice |
+| Area | Tools and topics |
 |---|---|
-| Excel | Data cleaning, formulas, SUMIFS/AVERAGEIFS, summary tables, KPI reporting |
-| SQL | Joins, aggregations, CASE, CTEs, views, filtering, date analysis |
-| Python | pandas, NumPy, data validation, exploratory analysis, Matplotlib |
-| Business analysis | KPI definition, trends, category and regional comparisons, inventory flags |
-| BI reporting | Learning dashboard design in Power BI and Tableau |
+| Data analysis | Excel, Python, pandas, NumPy |
+| Databases | SQL, MySQL, joins, aggregations, views |
+| Data visualization | Matplotlib; developing Power BI and Tableau skills |
+| Business analytics | KPIs, trend analysis, category and regional comparisons |
+| Data quality | Missing values, duplicates, formatting, validation and documentation |
 
-## Featured projects
+## Projects
 
-### 1. Supply Chain & Inventory Analytics
-**Python · pandas · SQL · charts**
+The projects below are organized by business area. Open a project README for its objective, files, analysis steps, and current limitations.
 
-A reproducible analysis of clearly labelled synthetic order data. Includes data-quality checks, sales and estimated-margin KPIs, category/monthly summaries, regional and warehouse reporting, inventory reorder flags, and committed output previews.
+### Featured Projects
 
-- [Read the project and view outputs](./supply-chain-inventory-analytics/README.md)
-- [View automated Python checks](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/supply-chain-check.yml)
-
-> The dataset is synthetic. The metrics are demonstration results, not real company performance. A Power BI dashboard file is still to be built and added.
-
-### 2. Healthcare Analytics SQL
-**MySQL 8 · SQL · relational schema**
-
-Practice schema, fictional test data, and reporting queries covering patient filters, doctor experience, patient counts, paid bills, department revenue, and a reusable revenue view.
-
-- [Read the project](./healthcare-analytics-sql/README.md)
-- [View MySQL 8 workflow](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/healthcare-sql-check.yml)
-
-> The automated MySQL 8 workflow has passed using fictional test records. No real patient data is published.
-
-### 3. Olympic Athlete Analysis
-**Python · pandas · exploratory data analysis**
-
-Explores athlete participation, height patterns across sports, and participation trends over time.
-
-- [Read the project](./olympic-athlete-analysis/README.md)
-
-## More projects
-
-| Project | Focus | Status / notes |
+| Project | Tools / focus | Open project |
 |---|---|---|
-| [Global Trade Data Analysis](./global-trade-data-analysis/README.md) | Excel cleaning, trade KPIs, summary analysis | KPI preview and CSV added; original XLSX still needs to be uploaded |
-| [Employee Wellness EDA](./employee-wellness-eda/README.md) | Exploratory data analysis | Original dataset/runtime validation limitations documented in project |
-| [Customer Feedback Analysis](./customer-feedback-analysis/README.md) | Customer reviews and feedback | Original dataset/runtime validation limitations documented in project |
-| [Space Mission Analysis](./space-mission-analysis/README.md) | Space mission data analysis | Original dataset/runtime validation limitations documented in project |
-| [Global Social Media Analytics](./global-social-media-analytics/README.md) | SQL schema and analytics queries | Database-engine execution status documented in project |
+| **Healthcare Analytics SQL** | MySQL, reporting queries, revenue analysis | [View project](./healthcare-analytics-sql/README.md) |
+| **Supply Chain & Inventory Analytics** | Python, pandas, KPIs, inventory and warehouse analysis | [View project](./supply-chain-inventory-analytics/README.md) |
+| **Olympic Athlete Analysis** | Python, pandas, EDA, participation and height trends | [View project](./olympic-athlete-analysis/README.md) |
+| **Global Trade Data Analysis** | Excel, trade metrics, data cleaning and summaries | [View project](./global-trade-data-analysis/README.md) |
 
-## How I approach an analysis
+### Additional Analytics Projects
 
-1. Understand the business question and define the metrics.
+| Project | Focus | Open project |
+|---|---|---|
+| Customer Feedback Analysis | Customer feedback and review analysis | [View project](./customer-feedback-analysis/README.md) |
+| Employee Wellness EDA | Exploratory data analysis | [View project](./employee-wellness-eda/README.md) |
+| Global Social Media Analytics | SQL schema and social-media analytics | [View project](./global-social-media-analytics/README.md) |
+| Space Mission Analysis | Space mission data exploration | [View project](./space-mission-analysis/README.md) |
+
+## How I Work
+
+1. Define the business question and the metrics needed.
 2. Inspect data types, missing values, duplicates, and invalid records.
-3. Clean and validate the data before calculating results.
-4. Use SQL or Python to compare categories, regions, and time periods.
-5. Present the results with readable tables, charts, and actionable next questions.
-6. Document assumptions, data limitations, and what has actually been tested.
+3. Clean and validate the data before analysis.
+4. Use SQL or Python to summarize and compare results.
+5. Communicate findings with readable tables, charts, and clear explanations.
+6. Document assumptions, data sources, and what has actually been tested.
 
-## Current portfolio priorities
+## Current Priorities
 
-- [x] Add an automated Python check for the Supply Chain project.
-- [x] Add automated MySQL 8 validation for the Healthcare SQL project.
-- [x] Publish supply-chain output summaries and chart previews.
-- [ ] Build and verify the Power BI supply-chain dashboard.
-- [ ] Upload the cleaned Global Trade Excel workbook and genuine workbook screenshots.
-- [ ] Finish checking earlier coursework projects against their original datasets.
-- [ ] Pin the three strongest repositories on my GitHub profile.
+- [ ] Review every project README and confirm all links and file paths work.
+- [ ] Verify each project against its original dataset and document any limitations.
+- [ ] Add clear charts, screenshots, and reproducible instructions where appropriate.
+- [ ] Complete and verify the Power BI supply-chain dashboard.
+- [ ] Add the cleaned Global Trade workbook and genuine analysis screenshots.
+- [ ] Pin the strongest completed projects on my GitHub profile.
 
-## Connect
+## Contact
 
 - **LinkedIn:** [Ankit Rathod](https://www.linkedin.com/in/ankit-rathod-07aa36328/)
 - **GitHub:** [3ankitrathod-hash](https://github.com/3ankitrathod-hash)
@@ -103,4 +78,4 @@ Explores athlete participation, height patterns across sports, and participation
 
 ---
 
-<sub>I am continuously improving this portfolio. I aim to be transparent about synthetic data, validation status, and unfinished work rather than presenting practice results as real-world business outcomes.</sub>
+<sub>This portfolio is a work in progress. Project descriptions should be read alongside each project's documented data sources, validation status, and limitations. Synthetic data and practice results are not presented as real company performance.</sub>
