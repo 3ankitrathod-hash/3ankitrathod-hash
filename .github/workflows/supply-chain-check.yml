@@ -1,0 +1,57 @@
+name: Supply Chain Project Check
+
+on:
+  push:
+    paths:
+      - "supply-chain-inventory-analytics/**"
+      - ".github/workflows/supply-chain-check.yml"
+  pull_request:
+    paths:
+      - "supply-chain-inventory-analytics/**"
+      - ".github/workflows/supply-chain-check.yml"
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: supply-chain-inventory-analytics
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run analysis
+        run: python analyze_supply_chain.py
+      - name: Verify expected outputs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import pandas as pd
+
+          output = Path("outputs")
+          expected = [
+              "kpi_summary.csv",
+              "category_summary.csv",
+              "monthly_sales.csv",
+              "inventory_reorder_alerts.csv",
+              "sales_by_category.png",
+              "monthly_sales_trend.png",
+          ]
+          missing = [name for name in expected if not (output / name).is_file()]
+          if missing:
+              raise SystemExit(f"Missing output files: {missing}")
+
+          kpis = pd.read_csv(output / "kpi_summary.csv")
+          assert {"metric", "value"}.issubset(kpis.columns)
+          assert kpis["metric"].is_unique
+          assert (output / "category_summary.csv").stat().st_size > 0
+          print("Output smoke checks passed.")
+          PY
