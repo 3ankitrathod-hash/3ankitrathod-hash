@@ -1,0 +1,38 @@
+name: Healthcare SQL MySQL 8 Check
+
+on:
+  push:
+    paths:
+      - "healthcare-analytics-sql/**"
+      - ".github/workflows/healthcare-sql-check.yml"
+  pull_request:
+    paths:
+      - "healthcare-analytics-sql/**"
+      - ".github/workflows/healthcare-sql-check.yml"
+  workflow_dispatch:
+
+jobs:
+  mysql-check:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install MySQL client
+        run: sudo apt-get update && sudo apt-get install -y mysql-client
+      - name: Create schema
+        run: mysql -h 127.0.0.1 -uroot -proot < healthcare-analytics-sql/healthcare_schema.sql
+      - name: Load fictional test records
+        run: mysql -h 127.0.0.1 -uroot -proot < healthcare-analytics-sql/healthcare_sample_data.sql
+      - name: Execute analytics queries and view
+        run: mysql -h 127.0.0.1 -uroot -proot --table < healthcare-analytics-sql/healthcare_queries.sql
