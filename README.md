@@ -58,6 +58,6 @@ Entry-level Data Analyst, Reporting Analyst, Operations Analyst, and Supply Chai
 
 - **GitHub:** [3ankitrathod-hash](https://github.com/3ankitrathod-hash)
 - **Location:** Maharashtra, India
-- **LinkedIn:** Add the correct profile URL when available.
+- **LinkedIn:** [Ankit Rathod](https://www.linkedin.com/in/ankit-rathod-07aa36328/)
 
 *This portfolio is a work in progress. Feedback on analysis quality, SQL, and presentation is welcome.*
