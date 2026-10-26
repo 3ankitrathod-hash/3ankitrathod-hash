@@ -2,11 +2,21 @@
 
 ## Overview
 
-Excel data-cleaning and summary analysis coursework using trade-order fields such as order dates, countries, products, categories, sales, shipping costs, profit, and region codes.
+Excel data-cleaning and summary analysis coursework using trade-order fields such as order dates, countries, products, categories, sales, shipping costs, profit, and region codes. The dataset is an educational sample, not real commercial performance.
 
-## Intended workbook contents
+## Workbook summary
 
-The completed workbook is expected to contain Raw_Data, Clean_Data, Summary_Tables, and Read_Me sheets.
+The locally prepared workbook summary reports:
+
+| KPI | Value |
+|---|---:|
+| Total orders | 500 |
+| Total sales (USD) | $474,704.62 |
+| Total profit (USD) | $133,570.40 |
+| Average order value (USD) | $949.41 |
+| Orders with negative profit | 0 |
+
+These figures are copied from the workbook's summary sheet and should be rechecked in Excel or LibreOffice before being used in an interview or presentation. The source summary shows no negative-profit orders, so conditional formatting may be present without any current rows being highlighted.
 
 ## Analysis workflow
 
@@ -18,10 +28,12 @@ The completed workbook is expected to contain Raw_Data, Clean_Data, Summary_Tabl
 - Add KPI formulas and SUMIFS/AVERAGEIFS summaries by Region_Code and Category.
 - Validate order IDs and check whether Total_Sales agrees with Quantity × Unit_Price within a rounding tolerance.
 
-## Validation and file status
+## Intended workbook contents
 
-The workbook was previously prepared and checked locally, but the actual Global_Trade_Data_Analysis_Final.xlsx file is **not currently stored in this GitHub project folder**. Upload the verified workbook and screenshots of the cleaned data and summary tables before presenting them as downloadable portfolio artifacts.
+The workbook is expected to contain Raw_Data, Clean_Data, Summary_Tables, and Read_Me sheets.
 
-The source dataset has been described as having no negative-profit rows, so conditional formatting may be present without any current rows being highlighted. Recheck this against the workbook before publishing findings.
+## File status
 
-Do not add numerical conclusions until the workbook is available and the figures have been rechecked.
+The completed Global_Trade_Data_Analysis_Final.xlsx workbook exists in the user's ChatGPT Library but is not currently stored in this GitHub project folder. It still needs to be uploaded as a binary workbook file, along with genuine screenshots of the cleaned data and summary tables. This repository README is not a substitute for the workbook itself.
+
+Do not publish customer names or any private data. The public workbook should use the pseudonymous labels from the cleaned version.
