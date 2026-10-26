@@ -1,37 +1,58 @@
-# Hi, I'm Ankit Rathod 👋
+# Ankit Rathod | Data Analytics Portfolio
 
-### Aspiring Data Analyst | Python • SQL • Excel • Power BI
+**Aspiring Data Analyst · Excel · SQL · Python · Power BI**
 
-I'm a BBA student pursuing a postgraduate Data Analytics program at **Imarticus Learning**. I'm building practical skills in data analysis and working toward an entry-level Data Analyst role.
+BBA student pursuing postgraduate training in Data Analytics at Imarticus Learning. My portfolio focuses on turning raw data into clear, decision-ready insights through data cleaning, exploratory analysis, KPI reporting, and SQL.
 
-I enjoy exploring datasets, cleaning data, finding patterns, and communicating insights clearly.
+- **Portfolio projects:** [Supply Chain & Inventory Analytics](./supply-chain-inventory-analytics/README.md) · [Olympic Athlete Analysis](./olympic-athlete-analysis/README.md) · [Healthcare Analytics SQL](./healthcare-analytics-sql/README.md)
+- **More practice projects:** [Employee Wellness EDA](./employee-wellness-eda/README.md) · [Customer Feedback Analysis](./customer-feedback-analysis/README.md) · [Space Mission Analysis](./space-mission-analysis/README.md) · [Global Social Media Analytics](./global-social-media-analytics/README.md) · [Global Trade Data Analysis](./global-trade-data-analysis/README.md)
 
-## 🧰 Skills I'm Developing
+## Skills
 
-- **Data analysis:** Excel, SQL, Python
-- **Python libraries:** pandas, NumPy, Matplotlib, Seaborn
-- **Business intelligence:** Power BI, Tableau
-- **Core concepts:** Data cleaning, exploratory data analysis (EDA), data visualization, and business analytics
+| Area | Tools / methods |
+|---|---|
+| Data analysis | Excel formulas, data cleaning, descriptive statistics, EDA |
+| Querying | SQL: joins, aggregations, CASE, CTEs, views, date-based analysis |
+| Python | pandas, NumPy, Matplotlib, Seaborn |
+| Reporting | KPI summaries, trend analysis, charts, business recommendations |
+| BI tools | Power BI and Tableau — currently developing |
 
-## 📊 Portfolio Projects
+## Featured work
 
-1. **[Olympic Athlete Analysis](./olympic-athlete-analysis/README.md)** — Python EDA, participation trends, athlete characteristics, and medal records.
-2. **[Employee Wellness EDA](./employee-wellness-eda/README.md)** — survey data cleaning and aggregate exploratory analysis.
-3. **[Customer Feedback Analysis](./customer-feedback-analysis/README.md)** — rule-based review filtering, keyword analysis, and draft support emails.
-4. **[Space Mission Analysis](./space-mission-analysis/README.md)** — mission outcomes, organizations, launch trends, and costs.
-5. **[Global Social Media Analytics](./global-social-media-analytics/README.md)** — MySQL queries for activity, likes, followers, and hashtags.
-6. **[Healthcare Analytics SQL](./healthcare-analytics-sql/README.md)** — relational SQL practice and a doctor-revenue view.
-7. **[Global Trade Data Analysis](./global-trade-data-analysis/README.md)** — Excel data cleaning, KPI formulas, and regional/category summaries.
+### 1. Supply Chain & Inventory Analytics
+An end-to-end, reproducible project using clearly labelled synthetic order data. Includes Python analysis, SQL business questions, monthly/category KPIs, inventory reorder flags, and charts.  
+**Skills:** Python, pandas, SQL, KPI design, inventory analysis.  
+[Open project →](./supply-chain-inventory-analytics/README.md)
 
-## 🧪 Reproducibility & project status
+### 2. Olympic Athlete Analysis
+Exploratory analysis of athlete participation, sport-level height patterns, and participation trends.  
+**Skills:** Python, pandas, grouping, visualization.  
+[Open project →](./olympic-athlete-analysis/README.md)
 
-Project documentation and source files are being added incrementally. Some projects still require their original datasets or a final visual review. Each README describes what has been tested and what remains to be verified. Synthetic demonstration data is labelled as such.
+### 3. Healthcare Analytics SQL
+Relational schema and SQL practice for doctor, department, patient-visit, and revenue questions.  
+**Skills:** MySQL, joins, aggregation, views.  
+[Open project →](./healthcare-analytics-sql/README.md)
 
-## 🎯 Career Focus
+## How I approach an analysis
 
-I'm working toward an entry-level Data Analyst opportunity where I can apply analytical thinking, keep learning, and help teams make data-informed decisions.
+1. Understand the business question and define useful metrics.
+2. Inspect data types, missing values, duplicates, and data quality.
+3. Clean and validate data before analysis.
+4. Explore trends and segment results with SQL or Python.
+5. Present the result with readable charts and practical next steps.
+6. State limitations clearly and avoid claiming findings that have not been validated.
 
-## 🤝 Connect
+## Project transparency
+
+Some earlier coursework projects still need validation against their original source datasets and/or a database engine. Their READMEs describe known limitations. The featured supply-chain project uses synthetic demonstration data; its numbers are for demonstrating the analysis workflow, not real company performance. I do not publish private customer, employer, or course data.
+
+## Career direction
+
+I'm preparing for entry-level Data Analyst, Reporting Analyst, Operations Analyst, and Supply Chain Analyst opportunities.
 
 - **GitHub:** [3ankitrathod-hash](https://github.com/3ankitrathod-hash)
-- **LinkedIn:** Add your LinkedIn profile URL here
+- **Location:** Maharashtra, India
+- **Contact:** Please use GitHub to connect.
+
+*This portfolio is a work in progress. I welcome feedback on analysis quality, SQL, and presentation.*
