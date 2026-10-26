@@ -1,0 +1,25 @@
+# Tooling configuration only. This repository is a portfolio of separate
+# projects, not a single installable Python package.
+
+[tool.ruff]
+target-version = "py311"
+
+[tool.ruff.lint]
+# Rules that catch real problems: syntax errors (E9), undefined names and unused
+# imports or variables (F), likely bugs (B), and risky statement patterns such as
+# bare `except` or `== None` (E7). Style-only rules (line length, import order,
+# imports not at the top of a notebook cell) are intentionally not enforced so
+# that existing coursework notebooks are not flagged for formatting.
+select = ["E7", "E9", "F", "B"]
+# Bare expressions such as `df.head()` are how notebook-style scripts display results.
+ignore = ["B018"]
+
+[tool.ruff.lint.per-file-ignores]
+# Known findings in existing coursework, left unchanged for now:
+#   F401: `numpy` is imported but not used.
+#   B033: the stop-word set lists "am" twice.
+"customer-feedback-analysis/customer_feedback_analysis.ipynb" = ["F401", "B033"]
+
+[tool.pytest.ini_options]
+testpaths = ["supply-chain-inventory-analytics/tests"]
+addopts = "-ra --strict-markers"

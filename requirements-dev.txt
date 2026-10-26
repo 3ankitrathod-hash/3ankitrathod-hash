@@ -1,0 +1,5 @@
+# Tools used by .github/workflows/ci.yml. Install with:
+#   python -m pip install -r requirements-dev.txt
+-r supply-chain-inventory-analytics/requirements.txt
+pytest==9.1.1
+ruff==0.16.9
