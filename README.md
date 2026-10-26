@@ -4,6 +4,10 @@
 
 ### Aspiring Data Analyst | SQL • Python • Excel • Power BI
 
+[![Profile README Link Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/profile-readme-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/profile-readme-check.yml)
+[![Portfolio Integrity Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/portfolio-integrity-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/portfolio-integrity-check.yml)
+[![Healthcare SQL Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/healthcare-sql-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/healthcare-sql-check.yml)
+
 Turning data into clear reports, useful KPIs, and practical business insights—with a focus on **supply chain, logistics, inventory, and operations analytics**.
 
 [GitHub Projects](#projects) · [Skills](#skills) · [LinkedIn](https://www.linkedin.com/in/ankit-rathod-07aa36328/)
