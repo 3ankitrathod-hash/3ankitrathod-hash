@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/supply-chain-inventory-analytics"
+    schedule:
+      interval: "weekly"
