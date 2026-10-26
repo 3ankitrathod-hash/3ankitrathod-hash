@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="390" viewBox="0 0 1000 390">
+<rect width="1000" height="390" fill="#f5f7fa"/>
+<text x="36" y="48" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#172b4d">Global Trade Data Analysis</text>
+<text x="36" y="76" font-family="Arial,sans-serif" font-size="14" fill="#5d6b82">Workbook KPI preview • educational sample data • not real commercial performance</text>
+<g font-family="Arial,sans-serif">
+<rect x="36" y="112" width="290" height="105" rx="12" fill="#ffffff" stroke="#d9e0ea"/>
+<text x="58" y="145" font-size="14" fill="#5d6b82">Total Orders</text><text x="58" y="185" font-size="31" font-weight="700" fill="#172b4d">500</text>
+<rect x="355" y="112" width="290" height="105" rx="12" fill="#ffffff" stroke="#d9e0ea"/>
+<text x="377" y="145" font-size="14" fill="#5d6b82">Total Sales (USD)</text><text x="377" y="185" font-size="29" font-weight="700" fill="#172b4d">$474,704.62</text>
+<rect x="674" y="112" width="290" height="105" rx="12" fill="#ffffff" stroke="#d9e0ea"/>
+<text x="696" y="145" font-size="14" fill="#5d6b82">Total Profit (USD)</text><text x="696" y="185" font-size="29" font-weight="700" fill="#172b4d">$133,570.40</text>
+<rect x="36" y="239" width="448" height="105" rx="12" fill="#ffffff" stroke="#d9e0ea"/>
+<text x="58" y="272" font-size="14" fill="#5d6b82">Average Order Value</text><text x="58" y="312" font-size="29" font-weight="700" fill="#172b4d">$949.41</text>
+<rect x="503" y="239" width="461" height="105" rx="12" fill="#ffffff" stroke="#d9e0ea"/>
+<text x="525" y="272" font-size="14" fill="#5d6b82">Orders with Negative Profit</text><text x="525" y="312" font-size="29" font-weight="700" fill="#172b4d">0</text>
+</g></svg>
