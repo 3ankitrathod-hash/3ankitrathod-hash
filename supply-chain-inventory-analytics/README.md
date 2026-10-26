@@ -1,99 +1,74 @@
 # Supply Chain & Inventory Analytics
 
-An end-to-end beginner portfolio project showing how an analyst can turn order-level data into sales, margin, monthly trend, category performance, and inventory-reorder reporting.
+An end-to-end beginner portfolio project showing how an analyst can turn order-level data into sales, estimated margin, monthly trend, category performance, and inventory-reorder reporting.
 
-> **Data note:** The included CSV is synthetic demonstration data generated for this portfolio. It does not represent a real company, supplier, customer, or shipment.
+> **Data note:** The CSV contains synthetic demonstration data. It does not represent a real company, supplier, customer, or shipment.
 
 ## Business questions
 
 1. What are total sales, estimated cost, gross profit, and gross margin?
-2. Which product categories contribute the most sales and profit?
+2. Which product categories contribute the most sales and estimated profit?
 3. How do sales change month to month?
-4. Which SKUs are at or below their reorder point?
-5. Which regions and warehouses contribute to sales?
+4. Which SKU/warehouse combinations are at or below the reorder point?
+5. How do regions and warehouses compare?
 
-## Tools
+## Tools and files
 
-- Python 3.10+
-- pandas and Matplotlib
-- SQL (MySQL 8-compatible query examples)
-- CSV as the portable source format
+- data/supply_chain_orders.csv — synthetic order/inventory dataset
+- analyze_supply_chain.py — data checks, calculations, summaries, and charts
+- sql/supply_chain_queries.sql — MySQL 8 query examples
+- DATA_DICTIONARY.md — field definitions and limitations
+- requirements.txt — Python dependencies
+- .github/workflows/supply-chain-check.yml — automated analysis check
 
-## Repository contents
+## Run locally
 
-- `data/supply_chain_orders.csv` — synthetic order/inventory dataset
-- [`DATA_DICTIONARY.md`](./DATA_DICTIONARY.md) — field definitions and interpretation cautions
-- `analyze_supply_chain.py` — analysis script and chart generation
-- `sql/supply_chain_queries.sql` — SQL business questions
-- `requirements.txt` — Python dependencies
-- `outputs/` — generated reports and charts after running the script
+From this directory, create and activate a virtual environment, then run:
 
-## Run it locally
+    python -m pip install -r requirements.txt
+    python analyze_supply_chain.py
 
-From this project directory:
+The script creates an outputs folder containing KPI, category, monthly, regional, warehouse, and reorder CSV summaries plus PNG charts. Outputs are generated locally and are not automatically committed.
 
-```bash
-python -m venv .venv
-```
+## Power BI dashboard specification
 
-Windows:
-```bash
-.venv\\Scripts\\activate
-```
+Import data/supply_chain_orders.csv into Power BI Desktop. Create these visuals:
 
-macOS/Linux:
-```bash
-source .venv/bin/activate
-```
+- KPI cards: Total Sales, Estimated Gross Profit, Estimated Gross Margin %, Unique Orders, Units Sold.
+- Line chart: Monthly Sales and Estimated Gross Profit.
+- Bar chart: Sales by Category.
+- Bar chart: Estimated Gross Profit by Region.
+- Table: SKU, Category, Warehouse, Stock On Hand, Reorder Point, Lead Time Days, Reorder Flag.
+- Slicers: Order Date, Region, Category, Warehouse.
 
-Install dependencies and run:
+Suggested DAX measures after importing the CSV as supply_chain_orders:
 
-```bash
-pip install -r requirements.txt
-python analyze_supply_chain.py
-```
+    Total Sales = SUMX(supply_chain_orders, supply_chain_orders[quantity] * supply_chain_orders[unit_price])
+    Estimated Cost = SUMX(supply_chain_orders, supply_chain_orders[quantity] * supply_chain_orders[unit_cost])
+    Estimated Gross Profit = [Total Sales] - [Estimated Cost]
+    Estimated Gross Margin % = DIVIDE([Estimated Gross Profit], [Total Sales], 0)
+    Unique Orders = DISTINCTCOUNT(supply_chain_orders[order_id])
+    Units Sold = SUM(supply_chain_orders[quantity])
 
-The script creates an `outputs` folder with:
-- `kpi_summary.csv`
-- `category_summary.csv`
-- `monthly_sales.csv`
-- `inventory_reorder_alerts.csv`
-- `sales_by_category.png`
-- `monthly_sales_trend.png`
+Save the dashboard as Supply_Chain_Inventory_Dashboard.pbix. Add the PBIX and screenshots only after actually building and checking them; no Power BI file is currently included.
 
-## Metric definitions
+## Metric definitions and limitations
 
-- **Sales** = quantity × unit price
-- **Estimated cost** = quantity × unit cost
-- **Gross profit** = sales − estimated cost
-- **Gross margin %** = gross profit ÷ sales × 100
-- **Reorder flag** = stock on hand less than or equal to reorder point
+- Sales = quantity × unit price
+- Estimated cost = quantity × unit cost
+- Estimated gross profit = sales − estimated cost
+- Estimated gross margin % = estimated gross profit ÷ sales × 100
+- Reorder flag = stock on hand less than or equal to reorder point
 
-These are simplified portfolio metrics. The dataset does not model returns, discounts, tax, stock movements, supplier constraints, or service-level targets.
+Currency is intentionally unspecified. The data excludes discounts, taxes, returns, freight, storage, supplier constraints, demand variability, and service-level targets. Inventory values are illustrative snapshots repeated on order rows; real replenishment decisions should use a separate inventory snapshot and consider lead times and demand.
 
-## Data checks in the script
+## Validation status
 
-- Parses order dates and numeric columns
-- Checks for missing values and duplicate order IDs
-- Calculates derived sales, cost, and profit columns
-- Sorts monthly reporting periods chronologically
-- Exports reorder candidates separately
-
-## SQL practice
-
-The SQL file contains queries for sales/profit KPIs, category and region performance, monthly trends, warehouse performance, and reorder candidates. The CSV is the source of truth for the Python version. To execute SQL, create a table with matching columns and load the CSV into a local MySQL database.
-
-## Automated checks
-
-A GitHub Actions workflow runs the analysis on relevant pushes and pull requests, then checks that the expected CSV and chart outputs are created. The workflow has been committed but its first hosted run still needs to complete before a passing badge/status can be claimed.
-
-## Results and interpretation
-
-Run the script first, then review the generated CSVs and charts before writing numeric findings. This README intentionally does not claim business results before execution. In an interview, explain the metric definitions, data limitations, and how you would validate stock levels against a real inventory system.
+The Python script checks required columns, dates, numeric values, duplicate order IDs, and output generation. Review GitHub Actions status and inspect generated summaries before reporting exact numeric findings. SQL examples are MySQL 8 style and still need to be run against an imported table in MySQL 8.
 
 ## Next improvements
 
-- Load the data into MySQL and compare SQL outputs with Python totals
-- Build a Power BI dashboard with KPI cards, monthly sales, category margin, and reorder alerts
-- Add screenshots after validating the output
-- Test with a larger real public dataset where licensing permits
+1. Run and compare Python and SQL totals.
+2. Build and verify the Power BI dashboard.
+3. Add genuine Power BI screenshots and a data-backed findings section.
+4. Try a licensed public supply-chain dataset for a separate real-world analysis.
