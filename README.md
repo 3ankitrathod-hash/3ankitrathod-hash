@@ -13,6 +13,7 @@
 [![Global Trade Validation](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/global-trade-validation.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/global-trade-validation.yml)
 [![Social Media SQL Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/social-media-sql-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/social-media-sql-check.yml)
 [![Space Mission Demo Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/space-mission-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/space-mission-check.yml)
+[![Notebook Demo Execution](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/notebook-demo-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/notebook-demo-check.yml)
 
 Turning data into clear reports, useful KPIs, and practical business insights—with a focus on **supply chain, logistics, inventory, and operations analytics**.
 
@@ -108,16 +109,17 @@ This profile repository is the portfolio landing page. Most projects listed abov
 | [Global Trade Data Analysis](./global-trade-data-analysis/README.md) | Workbook integrity and KPI arithmetic validation passed in GitHub Actions | Manually reconcile workbook formulas with raw/clean sheets before claiming the figures are fully verified |
 | [Olympic Athlete Analysis](./olympic-athlete-analysis/README.md) | Notebook execution passed in synthetic demo mode; the small sample is explicitly labeled as demo data | Use a licensed full dataset for real Olympic analysis |
 | [Customer Feedback Analysis](./customer-feedback-analysis/README.md) | Notebook execution passed in synthetic demo mode; small review samples are labeled as demo data | Use permitted full review data before making business claims |
-| [Employee Wellness EDA](./employee-wellness-eda/README.md) | Synthetic demo mode added for automated notebook execution; source extract is small | Confirm latest demo run and source/license before presenting any findings |
-| [Global Social Media Analytics](./global-social-media-analytics/README.md) | MySQL 8 workflow added with synthetic seed data | Confirm the latest SQL workflow and review query output |
-| [Space Mission Analysis](./space-mission-analysis/README.md) | Script and small synthetic CSV are committed; automated demo execution is being added | Confirm the workflow result and avoid presenting demo values as real mission history |
+| [Employee Wellness EDA](./employee-wellness-eda/README.md) | Notebook execution passed in synthetic demo mode | Verify the survey extract's provenance/license and use aggregate-only reporting |
+| [Global Social Media Analytics](./global-social-media-analytics/README.md) | MySQL 8 schema and queries are set up for automated execution with synthetic seed data | Check the workflow run before claiming validation; review query outputs |
+| [Space Mission Analysis](./space-mission-analysis/README.md) | Script executed successfully against the committed synthetic demo CSV in GitHub Actions | Replace demo input with a licensed historical dataset for real findings |
 
 ### Priorities
 
-- [ ] Confirm the latest CI and Space Mission demo workflow runs.
+- [x] Automated CI checks passed for Python lint/tests, synthetic notebook execution, the Supply Chain Python-to-MySQL KPI comparison, Healthcare SQL, Global Trade workbook integrity/KPI arithmetic, and the Space Mission demo script.
 - [ ] Build and validate the actual Power BI dashboard in Power BI Desktop; commit the PBIX and genuine screenshots only if shareable.
-- [ ] Use licensed, adequately sized datasets before presenting real-world findings.
-- [ ] Pin the strongest projects after their current validation status is confirmed.
+- [ ] Manually audit Global Trade workbook formulas against its raw/clean sheets.
+- [ ] Verify source/license and obtain permitted full datasets for projects whose original datasets are missing or unverified.
+- [ ] Review Social Media SQL workflow results and query output before presenting it as validated.
 
 ## Reproducibility & Data Notes
 
