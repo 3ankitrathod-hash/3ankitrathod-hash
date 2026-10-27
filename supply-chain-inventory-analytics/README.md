@@ -106,7 +106,6 @@ The data excludes discounts, taxes, returns, freight, storage, supplier constrai
 
 ## Next improvements
 
-1. Compare SQL totals with Python totals in MySQL 8.
-2. Build and verify the actual Power BI dashboard.
-3. Add genuine Power BI screenshots and the PBIX file.
-4. Try a licensed public supply-chain dataset for a separate real-world analysis.
+1. Build and verify the actual Power BI dashboard in Power BI Desktop.
+2. Add genuine Power BI screenshots and the checked PBIX file.
+3. Try a licensed public supply-chain dataset for a separate real-world analysis.
