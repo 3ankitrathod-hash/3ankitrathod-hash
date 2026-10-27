@@ -1,0 +1,51 @@
+name: Social Media SQL Validation
+
+on:
+  push:
+    paths:
+      - "global-social-media-analytics/**"
+      - ".github/workflows/social-media-sql-check.yml"
+  pull_request:
+    paths:
+      - "global-social-media-analytics/**"
+      - ".github/workflows/social-media-sql-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mysql-validation:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for MySQL
+        run: |
+          for i in {1..30}; do
+            if mysqladmin ping -h 127.0.0.1 -uroot -proot --silent; then exit 0; fi
+            sleep 2
+          done
+          echo "MySQL did not become ready" >&2
+          exit 1
+      - name: Create schema and load synthetic seed data
+        run: mysql -h 127.0.0.1 -uroot -proot < global-social-media-analytics/social_media_schema.sql
+      - name: Run analytics queries
+        run: mysql -h 127.0.0.1 -uroot -proot --show-warnings < global-social-media-analytics/social_media_queries.sql
+      - name: Assert seed data and output views
+        run: |
+          users=$(mysql -N -h 127.0.0.1 -uroot -proot -D social_media_demo -e "SELECT COUNT(*) FROM Users;")
+          posts=$(mysql -N -h 127.0.0.1 -uroot -proot -D social_media_demo -e "SELECT COUNT(*) FROM Posts;")
+          test "$users" -ge 1
+          test "$posts" -ge 1
