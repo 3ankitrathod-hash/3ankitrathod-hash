@@ -1,46 +1,35 @@
 # Olympic Athlete Analysis — Exploratory Data Analysis (EDA)
 
 ## Overview
-Exploratory analysis of Olympic athlete-event records from 1896 to 2016, including data quality checks, cleaning, descriptive statistics, and visual storytelling.
+Exploratory analysis of athlete-event records covering participation, athlete characteristics, sports, NOCs, medal outcomes, and trends. The original Olympic dataset is not committed here.
 
 ## Project files
-- `Olympic_Athlete_Analysis_Final.ipynb` — cleaned Jupyter notebook with code and explanations; saved outputs cleared for reproducibility.
+- `Olympic_Athlete_Analysis_Final.ipynb` — reproducible Jupyter notebook with code and explanations.
+- `data/athlete_data_demo.csv` — small, fictional demonstration dataset included to test the notebook workflow.
 - `requirements.txt` — Python dependencies.
-- `.gitignore` — excludes local environments, checkpoints, and generated cleaned CSV files.
+- `.github/workflows/notebook-demo-check.yml` — runs the notebook using the synthetic demonstration data.
 
-## Tools
-Python, pandas, NumPy, Matplotlib, Seaborn, Jupyter Notebook.
+## Run
+1. Install Python 3.10+ and dependencies: `pip install -r requirements.txt`.
+2. For the demo, run the notebook from this project folder; it automatically uses `data/athlete_data_demo.csv` if the original file is absent.
+3. For real analysis, obtain a permitted Olympic athlete-event dataset and place it at `data/athlete_data.csv`. The original dataset takes precedence over the demo file.
+4. Run the notebook from top to bottom.
 
 ## Analysis included
-- Dataset structure, data types, and missing values
-- Exact duplicate-row assessment and removal
-- Missing medal values represented as `No Medal`
-- Median imputation for age, height, and weight using sport-and-sex groups, then overall medians as a fallback
-- Participation trends, sex distribution, top sports and NOCs
+- Dataset shape, data types, missing values, and exact duplicate assessment
+- Cleaning missing medal labels and imputing age, height, and weight
+- Participation trends by year and season
+- Sex distribution, top sports and NOCs
 - Medal records by NOC and sport
 - Age, height, and weight distributions
 - Medal outcomes by sex and Summer/Winter participation
-- Female participation over time
-- Age-versus-weight relationship and medal distribution
+- Female participation over time and age-versus-weight relationship
 
-## How to run
-1. Install Python 3.10+.
-2. Clone or download this repository.
-3. Install dependencies with `pip install -r requirements.txt`.
-4. Obtain the CSV from a source whose terms permit your use. The dataset is not included in this repository.
-5. Place the CSV at `data/athlete_data.csv` or beside the notebook.
-6. Open Jupyter Notebook and run cells from top to bottom.
-
-Expected columns include `ID`, `Sex`, `Age`, `Height`, `Weight`, `NOC`, `Year`, `Season`, `Sport`, `Event`, and `Medal`.
-
-## Dataset checks and findings
-The supplied dataset version used during testing contained 271,116 rows and 15 columns. Removing 1,385 exact duplicate rows left 269,731 records. The dataset covers Olympic records through Rio 2016. These figures should be rechecked if a different CSV version is used.
-
-The notebook completed a full run against the dataset available in the working files. The repository copy has saved cell outputs cleared, so readers can reproduce the analysis with their own permitted copy of the dataset.
+## Validation status
+GitHub Actions executes the notebook with the synthetic demonstration CSV to catch code and workflow errors. **Demo output is not evidence about actual Olympic history.** The original full dataset was not available during this pass, so its previously documented row counts and real-data findings must be rechecked against the exact source file before quoting them.
 
 ## Limitations
-- The dataset ends in 2016.
-- Each row is an athlete-event record, not necessarily a unique athlete.
-- NOC codes are shown as provided.
+- Results depend on the dataset version and data-cleaning choices.
+- Each row represents an athlete-event record, not necessarily a unique athlete.
 - Median imputation can reduce natural variation.
 - This is descriptive analysis; associations do not establish causation.
