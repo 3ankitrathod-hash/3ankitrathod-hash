@@ -58,11 +58,21 @@ FROM supply_chain_orders
 GROUP BY warehouse
 ORDER BY sales DESC;
 
--- 6. Inventory reorder candidates (snapshot fields in the synthetic dataset)
-SELECT DISTINCT
-    sku, category, warehouse, stock_on_hand, reorder_point, lead_time_days
-FROM supply_chain_orders
-WHERE stock_on_hand <= reorder_point
+-- 6. Inventory reorder candidates using the latest row per SKU and warehouse
+-- Inventory values repeat on order rows, so older low-stock rows must not create stale alerts.
+WITH ranked_inventory AS (
+    SELECT
+        sku, category, warehouse, stock_on_hand, reorder_point, lead_time_days,
+        ROW_NUMBER() OVER (
+            PARTITION BY sku, warehouse
+            ORDER BY order_date DESC, order_id DESC
+        ) AS row_num
+    FROM supply_chain_orders
+)
+SELECT sku, category, warehouse, stock_on_hand, reorder_point, lead_time_days
+FROM ranked_inventory
+WHERE row_num = 1
+  AND stock_on_hand <= reorder_point
 ORDER BY warehouse, category, sku;
 
 -- 7. Products with the largest estimated profit contribution
