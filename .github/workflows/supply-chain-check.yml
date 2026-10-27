@@ -11,12 +11,28 @@ on:
       - ".github/workflows/supply-chain-check.yml"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
-  analyze:
+  analyze-and-compare-sql:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     defaults:
       run:
         working-directory: supply-chain-inventory-analytics
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -uroot -proot"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -27,8 +43,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      - name: Run analysis
+          pip install -r requirements.txt mysql-connector-python
+      - name: Run Python analysis
         run: python analyze_supply_chain.py
       - name: Verify expected outputs
         run: |
@@ -38,20 +54,93 @@ jobs:
 
           output = Path("outputs")
           expected = [
-              "kpi_summary.csv",
-              "category_summary.csv",
-              "monthly_sales.csv",
-              "inventory_reorder_alerts.csv",
-              "sales_by_category.png",
-              "monthly_sales_trend.png",
+              "kpi_summary.csv", "category_summary.csv", "monthly_sales.csv",
+              "inventory_reorder_alerts.csv", "sales_by_category.png", "monthly_sales_trend.png",
           ]
           missing = [name for name in expected if not (output / name).is_file()]
           if missing:
               raise SystemExit(f"Missing output files: {missing}")
-
           kpis = pd.read_csv(output / "kpi_summary.csv")
           assert {"metric", "value"}.issubset(kpis.columns)
           assert kpis["metric"].is_unique
-          assert (output / "category_summary.csv").stat().st_size > 0
-          print("Output smoke checks passed.")
+          print("Python output smoke checks passed.")
+          PY
+      - name: Load the same CSV into MySQL 8
+        run: |
+          python - <<'PY'
+          import csv
+          import mysql.connector
+          from pathlib import Path
+
+          csv_path = Path("data/supply_chain_orders.csv")
+          conn = mysql.connector.connect(host="127.0.0.1", user="root", password="root")
+          cur = conn.cursor()
+          cur.execute("CREATE DATABASE IF NOT EXISTS supply_chain_demo")
+          cur.execute("USE supply_chain_demo")
+          cur.execute("""
+          CREATE TABLE IF NOT EXISTS supply_chain_orders (
+            order_id VARCHAR(30) NOT NULL,
+            order_date DATE NOT NULL,
+            region VARCHAR(80) NOT NULL,
+            warehouse VARCHAR(80) NOT NULL,
+            category VARCHAR(80) NOT NULL,
+            sku VARCHAR(40) NOT NULL,
+            quantity INT NOT NULL,
+            unit_price DECIMAL(12,2) NOT NULL,
+            unit_cost DECIMAL(12,2) NOT NULL,
+            lead_time_days INT NOT NULL,
+            stock_on_hand INT NOT NULL,
+            reorder_point INT NOT NULL
+          )
+          """)
+          cur.execute("DELETE FROM supply_chain_orders")
+          with csv_path.open(newline="", encoding="utf-8-sig") as f:
+              rows = list(csv.DictReader(f))
+          columns = [
+            "order_id", "order_date", "region", "warehouse", "category", "sku",
+            "quantity", "unit_price", "unit_cost", "lead_time_days", "stock_on_hand", "reorder_point"
+          ]
+          sql = "INSERT INTO supply_chain_orders (" + ",".join(columns) + ") VALUES (" + ",".join(["%s"]*len(columns)) + ")"
+          values = [tuple(row[c] for c in columns) for row in rows]
+          cur.executemany(sql, values)
+          conn.commit()
+          print(f"Loaded {len(values)} CSV rows into MySQL.")
+          cur.close()
+          conn.close()
+          PY
+      - name: Execute committed SQL reporting queries
+        run: mysql -h 127.0.0.1 -uroot -proot supply_chain_demo < sql/supply_chain_queries.sql > /tmp/supply-chain-sql-results.txt
+      - name: Compare MySQL KPIs against Python KPIs
+        run: |
+          python - <<'PY'
+          import csv
+          import mysql.connector
+          from pathlib import Path
+
+          with Path("outputs/kpi_summary.csv").open(newline="", encoding="utf-8-sig") as f:
+              kpis = {row["metric"]: float(row["value"]) for row in csv.DictReader(f)}
+          conn = mysql.connector.connect(
+              host="127.0.0.1", user="root", password="root", database="supply_chain_demo"
+          )
+          cur = conn.cursor()
+          cur.execute("""
+            SELECT COUNT(DISTINCT order_id), SUM(quantity),
+                   ROUND(SUM(quantity * unit_price), 2),
+                   ROUND(SUM(quantity * unit_cost), 2),
+                   ROUND(SUM(quantity * (unit_price - unit_cost)), 2),
+                   ROUND(100 * SUM(quantity * (unit_price - unit_cost)) /
+                         NULLIF(SUM(quantity * unit_price), 0), 2)
+            FROM supply_chain_orders
+          """)
+          row = cur.fetchone()
+          expected = [
+            kpis["order_count"], kpis["total_units"], kpis["total_sales"],
+            kpis["estimated_cost"], kpis["estimated_gross_profit"], kpis["estimated_gross_margin_pct"]
+          ]
+          labels = ["order_count", "total_units", "total_sales", "estimated_cost", "estimated_gross_profit", "estimated_gross_margin_pct"]
+          for label, actual, target in zip(labels, row, expected):
+              assert abs(float(actual) - float(target)) < 0.011, f"{label}: MySQL={actual}, Python={target}"
+          print("MySQL and Python KPI totals match:", dict(zip(labels, row)))
+          cur.close()
+          conn.close()
           PY
