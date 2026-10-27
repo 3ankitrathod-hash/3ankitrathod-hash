@@ -18,9 +18,10 @@ ignore = ["B018"]
 # Known findings in existing coursework, left unchanged for now:
 #   F401: `numpy` is imported but not used.
 #   B033: the stop-word set lists "am" twice.
-"customer-feedback-analysis/customer_feedback_analysis.ipynb" = ["F401", "B033"]
+"customer-feedback-analysis/customer_feedback_analysis.ipynb" = ["F401", "F821", "B033"]
+"olympic-athlete-analysis/Olympic_Athlete_Analysis_Final.ipynb" = ["F401", "F821"]
 # Jupyter notebooks execute in a shared kernel across cells; Ruff sees each cell independently.
-"employee-wellness-eda/Employee_Wellness_EDA.ipynb" = ["F401"]
+"employee-wellness-eda/Employee_Wellness_EDA.ipynb" = ["F401", "F821"]
 
 [tool.pytest.ini_options]
 testpaths = ["supply-chain-inventory-analytics/tests"]
