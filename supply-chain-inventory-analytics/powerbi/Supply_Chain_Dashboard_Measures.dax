@@ -1,0 +1,35 @@
+-- Power BI DAX measures for the synthetic Supply Chain & Inventory Analytics demo.
+-- Import data/supply_chain_orders.csv as a table named supply_chain_orders.
+-- Format currency-like measures as decimal numbers because the dataset's currency is unspecified.
+
+Total Sales =
+SUMX (
+    supply_chain_orders,
+    supply_chain_orders[quantity] * supply_chain_orders[unit_price]
+)
+
+Estimated Cost =
+SUMX (
+    supply_chain_orders,
+    supply_chain_orders[quantity] * supply_chain_orders[unit_cost]
+)
+
+Estimated Gross Profit =
+[Total Sales] - [Estimated Cost]
+
+Estimated Gross Margin % =
+DIVIDE ( [Estimated Gross Profit], [Total Sales], 0 )
+
+Unique Orders =
+DISTINCTCOUNT ( supply_chain_orders[order_id] )
+
+Units Sold =
+SUM ( supply_chain_orders[quantity] )
+
+Average Lead Time (Days) =
+AVERAGE ( supply_chain_orders[lead_time_days] )
+
+-- Import outputs/inventory_reorder_alerts.csv separately as inventory_reorder_alerts.
+-- Use row count as a count of SKU/warehouse reorder candidates, not a count of order rows.
+Reorder Candidate Count =
+COUNTROWS ( inventory_reorder_alerts )
