@@ -1,16 +1,19 @@
 # Global Trade Data Analysis — Excel
 
 ## Overview
+Excel data-cleaning and summary analysis coursework using trade-order fields such as order dates, countries, products, categories, sales, shipping costs, profit, and region codes. This is an educational sample, not real commercial performance.
 
-Excel data-cleaning and summary analysis coursework using trade-order fields such as order dates, countries, products, categories, sales, shipping costs, profit, and region codes. The dataset is an educational sample, not real commercial performance.
+## Files
+- `Global_Trade_Data_Analysis_Final.xlsx` — committed workbook; inspect the workbook's sheets before interpreting results.
+- `workbook_kpis.csv` — compact KPI summary currently copied from the workbook.
+- `summary-preview.svg` — recreated visual preview from summary values, not an Excel screenshot.
+- `.github/workflows/global-trade-validation.yml` — automated workbook integrity and KPI-summary checks.
 
 ## KPI preview
 
 ![Global Trade KPI summary preview](./summary-preview.svg)
 
-This is a recreated visual preview from the workbook's summary values, not a screenshot of Excel.
-
-| KPI | Value |
+| KPI | Current documented value |
 |---|---:|
 | Total orders | 500 |
 | Total sales (USD) | $474,704.62 |
@@ -18,12 +21,9 @@ This is a recreated visual preview from the workbook's summary values, not a scr
 | Average order value (USD) | $949.41 |
 | Orders with negative profit | 0 |
 
-[Download/view the KPI summary CSV](./workbook_kpis.csv)
-
-These figures are copied from the workbook's summary sheet and should be rechecked in Excel or LibreOffice before being used in an interview or presentation. The source summary shows no negative-profit orders, so conditional formatting may be present without any current rows being highlighted.
+These are the values currently stored in `workbook_kpis.csv`; they are not certified until the workflow confirms the workbook structure and arithmetic. Do not quote these as independently verified findings until the validation run passes.
 
 ## Analysis workflow
-
 - Standardize country names and trim extra spaces.
 - Convert order dates and format them as month-year.
 - Apply currency formatting to unit price, total sales, shipping cost, and profit.
@@ -32,12 +32,7 @@ These figures are copied from the workbook's summary sheet and should be recheck
 - Add KPI formulas and SUMIFS/AVERAGEIFS summaries by Region_Code and Category.
 - Validate order IDs and check whether Total_Sales agrees with Quantity × Unit_Price within a rounding tolerance.
 
-## Intended workbook contents
+## Validation and limitations
+The workflow checks that the workbook opens, that expected worksheets exist, and that the KPI CSV is parseable. It does not replace a manual review of formulas, pivot tables, conditional formatting, or the underlying cleaning steps. Review the workflow run and workbook sheets before presenting the project.
 
-The workbook is expected to contain Raw_Data, Clean_Data, Summary_Tables, and Read_Me sheets.
-
-## File status
-
-The completed Global_Trade_Data_Analysis_Final.xlsx workbook exists in the user's ChatGPT Library but is not currently stored in this GitHub project folder. It still needs to be uploaded as a binary workbook file, along with genuine screenshots of the cleaned data and summary tables. The preview and CSV are useful supporting artifacts but are not substitutes for the workbook itself.
-
-Do not publish customer names or any private data. The public workbook should use the pseudonymous labels from the cleaned version.
+Do not publish customer names or private data. Only share the workbook if its source data is permitted for public distribution.
