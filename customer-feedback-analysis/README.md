@@ -1,25 +1,26 @@
 # Customer Feedback Analysis & Automated Apology Emails
 
 ## Overview
-A Python notebook that cleans review text, flags low-rated reviews with an explainable rule, counts common complaint keywords, and drafts customer-support apology emails.
+A Python notebook that cleans review text, flags low-rated reviews using an explainable rule, counts common complaint keywords, and drafts customer-support apology emails. The OpenAI API is optional.
 
-## Tools
-Python, pandas, NumPy, regular expressions, Counter, Jupyter Notebook; OpenAI API is optional.
+## Project files
+- `customer_feedback_analysis.ipynb` — analysis and draft-email workflow.
+- `data/Womens Clothing E-Commerce Reviews_demo.csv` — clearly labeled synthetic review examples for reproducible testing.
+- `requirements.txt` — notebook dependencies.
+- `.github/workflows/notebook-demo-check.yml` — executes this notebook using the synthetic demo.
 
 ## Run locally
-1. Install dependencies from `requirements.txt`.
-2. Place the permitted source CSV at `data/Womens Clothing E-Commerce Reviews.csv`.
-3. Run `customer_feedback_analysis.ipynb` from top to bottom.
-4. Set `OPENAI_API_KEY` as an environment variable only if you want to attempt real API calls.
+1. Install dependencies with `pip install -r requirements.txt`.
+2. Run the notebook from this project folder. If the original `data/Womens Clothing E-Commerce Reviews.csv` is absent, the notebook uses the synthetic demo CSV and prints a warning.
+3. For analysis of real reviews, obtain the permitted original dataset and save it as `data/Womens Clothing E-Commerce Reviews.csv`; it takes precedence over the demo.
+4. Set `OPENAI_API_KEY` as an environment variable only if you intentionally want to enable the external API. Without a key, the notebook uses a labeled mock fallback.
 
 ## Fixes and safeguards
-- The notebook no longer stops with an error when fewer than three critical reviews exist; it selects up to three.
-- API errors fall back to a clearly labelled mock email.
+- Handles fewer than three critical reviews without stopping.
+- API errors fall back to a clearly labeled mock email.
 - Never hard-code or commit API keys.
-- Review text is sent to the external API only when the API is enabled. Do not send confidential or identifiable customer data unless you are authorized to do so.
+- Do not send confidential or identifiable customer data to an external API unless authorized.
 - The 1–2 star threshold and keyword counting are simple rules, not a trained sentiment model.
 
 ## Validation status
-- Python cells pass syntax parsing.
-- The notebook completed a runtime test with a temporary synthetic review dataset.
-- The original review CSV was not available for this repair pass, so final counts and business findings need verification against the permitted source data.
+GitHub Actions executes the notebook against the synthetic demo data. Those results are for software testing only, not real customer findings. Re-run with the permitted original dataset and verify all counts before reporting business conclusions.
