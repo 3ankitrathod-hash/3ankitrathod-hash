@@ -1,0 +1,51 @@
+name: Claude Code
+
+# Runs the official Claude Code GitHub Action when someone comments "@claude" on an
+# issue, pull request, or pull request review. Based on the example in the official docs:
+# https://code.claude.com/docs/en/github-actions
+#
+# Before merging this file:
+#   1. Install the Claude GitHub App (https://github.com/apps/claude) on this repository.
+#   2. Add the repository secret ANTHROPIC_API_KEY (Settings > Secrets and variables > Actions).
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+# Run one Claude job per issue or pull request at a time, and never cancel one that is mid-edit.
+concurrency:
+  group: claude-${{ github.event.issue.number || github.event.pull_request.number }}
+  cancel-in-progress: false
+
+jobs:
+  claude:
+    # Only start a runner when the comment mentions @claude AND comes from the repository
+    # owner, an organization member, or a collaborator. The action itself also requires
+    # write access before Claude starts.
+    if: >-
+      contains(github.event.comment.body, '@claude') &&
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.comment.author_association)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write        # let Claude commit to a branch
+      pull-requests: write   # let Claude open and comment on pull requests
+      issues: write          # let Claude comment on issues
+      id-token: write        # required by the action's default GitHub App authentication
+      actions: read          # let Claude read CI results on pull requests
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Cost controls: a Sonnet-class model and a cap on how many steps one run can take.
+          claude_args: |
+            --model claude-sonnet-5-5
+            --max-turns 10
