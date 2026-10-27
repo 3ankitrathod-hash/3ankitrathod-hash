@@ -104,7 +104,7 @@ This profile repository is the portfolio landing page. Most projects listed abov
 
 | Project | Current evidence | Remaining work |
 |---|---|---|
-| [Supply Chain & Inventory Analytics](./supply-chain-inventory-analytics/README.md) | Python analysis and MySQL 8 SQL workflow passed; SQL/Python KPI totals match on the synthetic data | Create and validate the actual PBIX in Power BI Desktop |
+| [Supply Chain & Inventory Analytics](./supply-chain-inventory-analytics/README.md) | Python analysis, MySQL 8 queries, KPI parity, and SQL/Python reorder-alert parity passed on synthetic data | Create and validate the actual PBIX in Power BI Desktop |
 | [Healthcare Analytics SQL](./healthcare-analytics-sql/README.md) | MySQL 8 workflow passed with fictional seed records and reporting queries | Review the output queries and explain joins, aggregations, and the view clearly |
 | [Global Trade Data Analysis](./global-trade-data-analysis/README.md) | Workbook integrity and KPI arithmetic validation passed in GitHub Actions | Manually reconcile workbook formulas with raw/clean sheets before claiming the figures are fully verified |
 | [Olympic Athlete Analysis](./olympic-athlete-analysis/README.md) | Notebook execution passed in synthetic demo mode; the small sample is explicitly labeled as demo data | Use a licensed full dataset for real Olympic analysis |
