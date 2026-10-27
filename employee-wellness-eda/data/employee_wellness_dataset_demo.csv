@@ -1,0 +1,11 @@
+Age,Gender,self_employed,work_interfere,no_employees,treatment,family_history,benefits,Country,remote_work,tech_company
+27,Female,No,Sometimes,26-100,Yes,No,Yes,United States,Yes,Yes
+34,Male,No,Rarely,100-500,No,No,Don't know,United States,No,Yes
+41,Female,Yes,Often,1-5,Yes,Yes,No,Canada,Yes,No
+29,Non-binary,No,Never,6-25,No,No,Yes,United Kingdom,Yes,Yes
+52,Male,No,Sometimes,More than 1000,Yes,Yes,Don't know,Australia,No,Yes
+23,Female,No,Not applicable,26-100,No,No,Yes,India,Yes,Yes
+37,Male,Yes,Rarely,5-Jan,Yes,No,No,Ireland,No,No
+31,Female,No,Often,25-Jun,Yes,Yes,Yes,United States,Yes,Yes
+45,Male,No,Sometimes,500-1000,No,No,No,Germany,No,Yes
+28,Female,No,Rarely,26-100,Yes,Yes,Don't know,Canada,Yes,Yes
