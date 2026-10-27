@@ -39,8 +39,14 @@ jobs:
       - name: Install employee wellness project dependencies
         run: python -m pip install -r employee-wellness-eda/requirements.txt
       - name: Execute Olympic notebook with synthetic demo data
+        env:
+          PORTFOLIO_DEMO_MODE: "1"
         run: jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=180 --output-dir=/tmp/notebook-results --output=olympic-demo.ipynb olympic-athlete-analysis/Olympic_Athlete_Analysis_Final.ipynb
       - name: Execute customer feedback notebook with synthetic demo data
+        env:
+          PORTFOLIO_DEMO_MODE: "1"
         run: jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=180 --output-dir=/tmp/notebook-results --output=customer-feedback-demo.ipynb customer-feedback-analysis/customer_feedback_analysis.ipynb
       - name: Execute employee wellness notebook with synthetic demo data
+        env:
+          PORTFOLIO_DEMO_MODE: "1"
         run: jupyter nbconvert --to notebook --execute --ExecutePreprocessor.timeout=180 --output-dir=/tmp/notebook-results --output=employee-wellness-demo.ipynb employee-wellness-eda/Employee_Wellness_EDA.ipynb
