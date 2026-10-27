@@ -11,9 +11,13 @@ on:
       - ".github/workflows/healthcare-sql-check.yml"
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   mysql-check:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     services:
       mysql:
         image: mysql:8.0
@@ -30,9 +34,17 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install MySQL client
         run: sudo apt-get update && sudo apt-get install -y mysql-client
-      - name: Create schema
+      - name: Create safe schema
         run: mysql -h 127.0.0.1 -uroot -proot < healthcare-analytics-sql/healthcare_schema.sql
       - name: Load fictional test records
         run: mysql -h 127.0.0.1 -uroot -proot < healthcare-analytics-sql/healthcare_sample_data.sql
-      - name: Execute analytics queries and view
+      - name: Execute analytics queries and create view
         run: mysql -h 127.0.0.1 -uroot -proot --table < healthcare-analytics-sql/healthcare_queries.sql
+      - name: Assert sample totals and view output
+        run: |
+          paid_revenue=$(mysql -N -h 127.0.0.1 -uroot -proot -D healthcare_analytics_practice -e "SELECT CAST(SUM(net_amount) AS DECIMAL(10,2)) FROM bills WHERE payment_status='Paid';")
+          patient_count=$(mysql -N -h 127.0.0.1 -uroot -proot -D healthcare_analytics_practice -e "SELECT COUNT(*) FROM patients;")
+          view_count=$(mysql -N -h 127.0.0.1 -uroot -proot -D healthcare_analytics_practice -e "SELECT COUNT(*) FROM vw_doctor_revenue;")
+          test "$paid_revenue" = "7400.00"
+          test "$patient_count" = "3"
+          test "$view_count" = "3"
