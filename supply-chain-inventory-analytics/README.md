@@ -102,7 +102,7 @@ The data excludes discounts, taxes, returns, freight, storage, supplier constrai
 
 ## Validation status
 
-**Automated Python analysis passed in GitHub Actions** and the output files were checked by the workflow. The committed CSV/SVG snapshots were calculated from the same source data and metrics. SQL examples are MySQL 8 style; compare their results against the Python summaries after importing the CSV into MySQL. See [Supply Chain workflow runs](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/supply-chain-check.yml).
+**Automated Python analysis and MySQL 8 validation passed in GitHub Actions.** The workflow loads the same synthetic CSV into MySQL, executes the committed SQL reporting queries, and compares overall SQL KPIs with the Python output. The totals match for the validated demo dataset. See [Supply Chain workflow runs](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/supply-chain-check.yml).
 
 ## Next improvements
 
