@@ -10,6 +10,8 @@
 [![CI](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/ci.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/codeql.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/codeql.yml)
 [![Supply Chain Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/supply-chain-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/supply-chain-check.yml)
+[![Global Trade Validation](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/global-trade-validation.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/global-trade-validation.yml)
+[![Social Media SQL Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/social-media-sql-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/social-media-sql-check.yml)
 
 Turning data into clear reports, useful KPIs, and practical business insights—with a focus on **supply chain, logistics, inventory, and operations analytics**.
 
@@ -102,11 +104,11 @@ This profile repository is the portfolio landing page. Most projects listed abov
 |---|---|---|
 | [Supply Chain & Inventory Analytics](./supply-chain-inventory-analytics/README.md) | Synthetic demo dataset with documented KPIs and charts | Explain that all values are synthetic; walk through the KPI calculations and reorder logic |
 | [Healthcare Analytics SQL](./healthcare-analytics-sql/README.md) | Fictional sample records and automated MySQL 8 validation | Explain the schema, joins, aggregations, view, and workflow; do not describe sample data as real patient data |
-| [Global Trade Data Analysis](./global-trade-data-analysis/README.md) | Workbook, KPI CSV, and preview are committed | Run the new workbook validation workflow and confirm KPI calculations against the raw/clean sheets |
+| [Global Trade Data Analysis](./global-trade-data-analysis/README.md) | Workbook integrity and KPI summary arithmetic checks pass in GitHub Actions | Manually inspect workbook formulas and reconcile KPIs with raw/clean sheets before claiming the figures are fully verified |
 | [Olympic Athlete Analysis](./olympic-athlete-analysis/README.md) | Notebook and analysis workflow documented; source dataset is not included | Obtain the permitted dataset, run the notebook end-to-end, and verify the outputs |
 | [Customer Feedback Analysis](./customer-feedback-analysis/README.md) | Runtime test used temporary synthetic reviews; original CSV was not available for the repair pass | Demonstrate the rule-based review flagging; clearly state that it is not a trained sentiment model |
 | [Employee Wellness EDA](./employee-wellness-eda/README.md) | Runtime test used temporary synthetic data; source data is not included | Use aggregate results only; do not expose sensitive workplace responses or make diagnostic claims |
-| [Global Social Media Analytics](./global-social-media-analytics/README.md) | SQL schema and queries are documented; end-to-end MySQL execution is not confirmed | Run the SQL in MySQL 8 and verify the result sets before presenting findings |
+| [Global Social Media Analytics](./global-social-media-analytics/README.md) | New MySQL 8 workflow added; latest run still needs final status confirmation | Explain that the seed data is synthetic and review the successful query run before presenting results |
 | [Space Mission Analysis](./space-mission-analysis/README.md) | Script runtime test used temporary synthetic data; original CSV was not available | Run with the permitted source CSV and verify all figures and charts |
 
 ### Priorities
