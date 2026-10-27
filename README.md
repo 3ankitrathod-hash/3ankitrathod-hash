@@ -78,6 +78,11 @@ The projects below are organized by business area. Open a project README for its
 | Global Social Media Analytics | SQL schema and social-media analytics | [View project](./global-social-media-analytics/README.md) |
 | Space Mission Analysis | Space mission data exploration | [View project](./space-mission-analysis/README.md) |
 
+## Technical Writing
+
+- **[Exploratory Data Analysis (EDA): The Foundation of Every Successful Data Science Project](./technical-writing/eda-foundation/README.md)** — A Medium article explaining the role of EDA, data-quality checks, descriptive statistics, distributions, outlier exploration, and feature relationships.
+- [Read the original article on Medium](https://medium.com/@3ankitrathod/exploratory-data-analysis-eda-the-foundation-of-every-successful-data-science-project-b712160515ab)
+
 ## How I Work
 
 1. Define the business question and the metrics needed.
