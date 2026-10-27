@@ -12,6 +12,7 @@
 [![Supply Chain Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/supply-chain-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/supply-chain-check.yml)
 [![Global Trade Validation](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/global-trade-validation.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/global-trade-validation.yml)
 [![Social Media SQL Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/social-media-sql-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/social-media-sql-check.yml)
+[![Space Mission Demo Check](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/space-mission-check.yml/badge.svg)](https://github.com/3ankitrathod-hash/3ankitrathod-hash/actions/workflows/space-mission-check.yml)
 
 Turning data into clear reports, useful KPIs, and practical business insights—with a focus on **supply chain, logistics, inventory, and operations analytics**.
 
@@ -102,19 +103,18 @@ This profile repository is the portfolio landing page. Most projects listed abov
 
 | Project | Current evidence | Remaining work |
 |---|---|---|
-| [Supply Chain & Inventory Analytics](./supply-chain-inventory-analytics/README.md) | Python analysis workflow and output snapshots; synthetic order data; Power BI guide and DAX measures committed | Compare MySQL query totals to Python outputs; create and validate the actual PBIX in Power BI Desktop |
+| [Supply Chain & Inventory Analytics](./supply-chain-inventory-analytics/README.md) | Python analysis and MySQL 8 SQL workflow passed; SQL/Python KPI totals match on the synthetic data | Create and validate the actual PBIX in Power BI Desktop |
 | [Healthcare Analytics SQL](./healthcare-analytics-sql/README.md) | MySQL 8 workflow passed with fictional seed records and reporting queries | Review the output queries and explain joins, aggregations, and the view clearly |
-| [Global Trade Data Analysis](./global-trade-data-analysis/README.md) | Workbook and KPI validation workflow added | Confirm the latest workflow run and manually reconcile workbook formulas with the KPI summary |
-| [Olympic Athlete Analysis](./olympic-athlete-analysis/README.md) | Notebook has a labeled demo-data mode; original full dataset is not included | Confirm the latest notebook run and use a licensed full dataset for real Olympic analysis |
-| [Customer Feedback Analysis](./customer-feedback-analysis/README.md) | Small review sample correctly labeled as demo data; notebook has optional API fallback | Confirm the latest notebook run; use permitted full review data before making business claims |
+| [Global Trade Data Analysis](./global-trade-data-analysis/README.md) | Workbook integrity and KPI arithmetic validation passed in GitHub Actions | Manually reconcile workbook formulas with raw/clean sheets before claiming the figures are fully verified |
+| [Olympic Athlete Analysis](./olympic-athlete-analysis/README.md) | Notebook execution passed in synthetic demo mode; the small sample is explicitly labeled as demo data | Use a licensed full dataset for real Olympic analysis |
+| [Customer Feedback Analysis](./customer-feedback-analysis/README.md) | Notebook execution passed in synthetic demo mode; small review samples are labeled as demo data | Use permitted full review data before making business claims |
 | [Employee Wellness EDA](./employee-wellness-eda/README.md) | Synthetic demo mode added for automated notebook execution; source extract is small | Confirm latest demo run and source/license before presenting any findings |
 | [Global Social Media Analytics](./global-social-media-analytics/README.md) | MySQL 8 workflow added with synthetic seed data | Confirm the latest SQL workflow and review query output |
-| [Space Mission Analysis](./space-mission-analysis/README.md) | Script and a small illustrative CSV are committed; data is labeled as synthetic | Confirm script execution against the included demo and avoid presenting demo values as real mission history |
+| [Space Mission Analysis](./space-mission-analysis/README.md) | Script and small synthetic CSV are committed; automated demo execution is being added | Confirm the workflow result and avoid presenting demo values as real mission history |
 
 ### Priorities
 
-- [ ] Confirm the latest CI, notebook-demo, SQL, and workbook workflow runs.
-- [ ] Compare Supply Chain SQL totals against the Python KPI outputs.
+- [ ] Confirm the latest CI and Space Mission demo workflow runs.
 - [ ] Build and validate the actual Power BI dashboard in Power BI Desktop; commit the PBIX and genuine screenshots only if shareable.
 - [ ] Use licensed, adequately sized datasets before presenting real-world findings.
 - [ ] Pin the strongest projects after their current validation status is confirmed.
