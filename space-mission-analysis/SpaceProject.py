@@ -33,7 +33,7 @@ DATA_PATH = next((path for path in possible_paths if path.exists()), None)
 if DATA_PATH is None:
     raise FileNotFoundError(
         "Dataset not found. Place space_mission_data.csv in this project's data/ folder "
-        "or beside this script. The dataset is not included in this repository."
+        "or beside this script. The repository includes a small synthetic demo dataset; see the README for its limitations."
     )
 
 df = pd.read_csv(DATA_PATH)
