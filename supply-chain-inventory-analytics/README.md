@@ -48,6 +48,8 @@ Currency is intentionally unspecified. The figures are not real business perform
 - data/supply_chain_orders.csv — synthetic order/inventory dataset
 - analyze_supply_chain.py — data checks, calculations, summaries, and charts
 - sql/supply_chain_queries.sql — MySQL 8 query examples
+- powerbi/POWER_BI_BUILD_GUIDE.md — dashboard build steps and validation checklist
+- powerbi/Supply_Chain_Dashboard_Measures.dax — DAX measure reference
 - DATA_DICTIONARY.md — field definitions and limitations
 - requirements.txt — Python dependencies
 - .github/workflows/supply-chain-check.yml — automated analysis check
@@ -65,6 +67,8 @@ On Windows, activate the environment with .venv\\Scripts\\activate. On macOS/Lin
 The script creates an outputs folder containing KPI, category, monthly, regional, warehouse, and reorder CSV summaries plus PNG charts. Outputs are generated locally and are not automatically committed; the CSV and SVG snapshots linked above are committed portfolio outputs.
 
 ## Power BI dashboard specification
+
+See [the detailed Power BI build guide](./powerbi/POWER_BI_BUILD_GUIDE.md) and [DAX measure reference](./powerbi/Supply_Chain_Dashboard_Measures.dax). The actual PBIX has not yet been built.
 
 Import data/supply_chain_orders.csv into Power BI Desktop. Create these visuals:
 
