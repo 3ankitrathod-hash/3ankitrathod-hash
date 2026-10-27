@@ -21,7 +21,7 @@ Excel data-cleaning and summary analysis coursework using trade-order fields suc
 | Average order value (USD) | $949.41 |
 | Orders with negative profit | 0 |
 
-These are the values currently stored in `workbook_kpis.csv`; they are not certified until the workflow confirms the workbook structure and arithmetic. Do not quote these as independently verified findings until the validation run passes.
+These are the values currently stored in `workbook_kpis.csv`. The workflow checks that the workbook opens and that the KPI summary is internally consistent; it does not prove the workbook's underlying formulas or raw-sheet reconciliation are correct. Treat the values as documented sample figures until the workbook has been manually audited.
 
 ## Analysis workflow
 - Standardize country names and trim extra spaces.
@@ -33,6 +33,6 @@ These are the values currently stored in `workbook_kpis.csv`; they are not certi
 - Validate order IDs and check whether Total_Sales agrees with Quantity × Unit_Price within a rounding tolerance.
 
 ## Validation and limitations
-The workflow checks that the workbook opens, that expected worksheets exist, and that the KPI CSV is parseable. It does not replace a manual review of formulas, pivot tables, conditional formatting, or the underlying cleaning steps. Review the workflow run and workbook sheets before presenting the project.
+The workflow checks that the workbook opens, that at least one visible worksheet exists, that the KPI CSV is parseable, and that Average Order Value agrees with Total Sales divided by Total Orders. It does not replace a manual review of formulas, pivot tables, conditional formatting, or the underlying cleaning steps. Review the workflow run and workbook sheets before presenting the project.
 
 Do not publish customer names or private data. Only share the workbook if its source data is permitted for public distribution.
