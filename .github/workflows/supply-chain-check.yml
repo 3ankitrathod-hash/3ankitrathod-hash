@@ -108,6 +108,49 @@ jobs:
           cur.close()
           conn.close()
           PY
+      - name: Compare MySQL reorder alerts against Python output
+        run: |
+          python - <<'PY'
+          import csv
+          import mysql.connector
+          from pathlib import Path
+
+          columns = ["sku", "category", "warehouse", "stock_on_hand", "reorder_point", "lead_time_days"]
+          with Path("outputs/inventory_reorder_alerts.csv").open(newline="", encoding="utf-8-sig") as f:
+              python_rows = sorted(
+                  tuple(row[column] for column in columns)
+                  for row in csv.DictReader(f)
+              )
+
+          conn = mysql.connector.connect(
+              host="127.0.0.1", user="root", password="root", database="supply_chain_demo"
+          )
+          cur = conn.cursor()
+          cur.execute("""
+            WITH ranked_inventory AS (
+              SELECT sku, category, warehouse, stock_on_hand, reorder_point, lead_time_days,
+                     ROW_NUMBER() OVER (
+                       PARTITION BY sku, warehouse
+                       ORDER BY order_date DESC, order_id DESC
+                     ) AS row_num
+              FROM supply_chain_orders
+            )
+            SELECT sku, category, warehouse, stock_on_hand, reorder_point, lead_time_days
+            FROM ranked_inventory
+            WHERE row_num = 1 AND stock_on_hand <= reorder_point
+            ORDER BY warehouse, category, sku
+          """)
+          sql_rows = sorted(tuple(str(value) for value in row) for row in cur.fetchall())
+          cur.close()
+          conn.close()
+
+          if sql_rows != python_rows:
+              raise SystemExit(
+                  "Reorder alerts differ between Python and MySQL. "
+                  f"Python={python_rows}; MySQL={sql_rows}"
+              )
+          print(f"Python and MySQL reorder alerts match ({len(sql_rows)} rows).")
+          PY
       - name: Execute committed SQL reporting queries
         run: mysql -h 127.0.0.1 -uroot -proot supply_chain_demo < sql/supply_chain_queries.sql > /tmp/supply-chain-sql-results.txt
       - name: Compare MySQL KPIs against Python KPIs
