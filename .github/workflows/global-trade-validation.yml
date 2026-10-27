@@ -1,0 +1,58 @@
+name: Global Trade Workbook Validation
+
+on:
+  push:
+    paths:
+      - "global-trade-data-analysis/**"
+      - ".github/workflows/global-trade-validation.yml"
+  pull_request:
+    paths:
+      - "global-trade-data-analysis/**"
+      - ".github/workflows/global-trade-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  workbook-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install workbook reader
+        run: python -m pip install --upgrade pip openpyxl
+      - name: Validate workbook and KPI summary
+        run: |
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          from openpyxl import load_workbook
+
+          root = Path("global-trade-data-analysis")
+          workbook_path = root / "Global_Trade_Data_Analysis_Final.xlsx"
+          kpi_path = root / "workbook_kpis.csv"
+          assert workbook_path.is_file() and workbook_path.stat().st_size > 0, "Workbook is missing or empty"
+          wb = load_workbook(workbook_path, read_only=True, data_only=False)
+          visible = [ws.title for ws in wb.worksheets if ws.sheet_state == "visible"]
+          assert visible, "Workbook has no visible worksheets"
+          print("Workbook worksheets:", ", ".join(visible))
+          wb.close()
+
+          with kpi_path.open(newline="", encoding="utf-8-sig") as f:
+              rows = list(csv.DictReader(f))
+          assert rows, "KPI CSV has no data rows"
+          metrics = {row["Metric"].strip(): float(row["Value"]) for row in rows}
+          required = {"Total Orders", "Total Sales", "Total Profit", "Average Order Value", "Orders with Negative Profit"}
+          assert required.issubset(metrics), f"Missing KPI names: {sorted(required - metrics.keys())}"
+          assert metrics["Total Orders"] > 0, "Total Orders must be positive"
+          expected_aov = metrics["Total Sales"] / metrics["Total Orders"]
+          assert abs(expected_aov - metrics["Average Order Value"]) <= 0.02, (
+              f"Average Order Value mismatch: expected about {expected_aov:.2f}, "
+              f"CSV has {metrics['Average Order Value']:.2f}"
+          )
+          assert 0 <= metrics["Orders with Negative Profit"] <= metrics["Total Orders"]
+          print("KPI summary arithmetic checks passed.")
+          PY
