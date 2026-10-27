@@ -10,6 +10,7 @@ Python, pandas, NumPy, Matplotlib, Seaborn.
 - `SpaceProject.py` — analysis script.
 - `data/space_mission_data.csv` — a small synthetic demonstration dataset. The mission names and records are illustrative, not verified historical mission data.
 - `requirements.txt` — Python dependencies.
+- `.github/workflows/space-mission-check.yml` — runs the script against the included demo CSV.
 
 ## Run locally
 From this project folder:
@@ -30,4 +31,4 @@ The script looks for `data/space_mission_data.csv` first and then `space_mission
 - Missing mission dates remain missing; success-rate calculations avoid treating missing statuses as confirmed failures.
 
 ## Validation status and limitations
-The repository's CSV is synthetic demonstration data and must not be presented as real space-industry findings. The script should be executed locally or through CI after dependencies are installed. Interpret the output as a code demonstration only; mission-cost fields, mission status and locations are fictional in the demo file.
+The repository's CSV is synthetic demonstration data and must not be presented as real space-industry findings. GitHub Actions runs the script after installing dependencies; check the Space Mission Demo Check workflow for the latest result. Interpret the output as a code demonstration only; mission-cost fields, mission status and locations are fictional in the demo file.
